@@ -14,7 +14,7 @@ declare var OPEN_WEATHER_MAP_API_KEY;
     AngularWeatherWidgetModule.forRoot({
       key: OPEN_WEATHER_MAP_API_KEY,
       name: WeatherApiName.OPEN_WEATHER_MAP,
-      baseUrl: 'http://api.openweathermap.org/data/2.5'
+      baseUrl: 'https://api.openweathermap.org/data/2.5'
     })
   ],
   bootstrap: [DemoComponent]

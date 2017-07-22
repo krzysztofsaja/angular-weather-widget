@@ -46,7 +46,11 @@ export default {
     historyApiFallback: true
   },
   plugins: [
-    ...(IS_PROD ? [] : [
+    ...(IS_PROD ? [
+      new webpack.DefinePlugin({
+        OPEN_WEATHER_MAP_API_KEY: JSON.stringify(OPEN_WEATHER_MAP_API_KEY)
+      }),
+    ] : [
       new webpack.HotModuleReplacementPlugin(),
       new ForkTsCheckerWebpackPlugin({
         watch: ['./src', './demo']

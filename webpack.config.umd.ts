@@ -5,6 +5,7 @@ import * as angularExternals from 'webpack-angular-externals';
 import * as rxjsExternals from 'webpack-rxjs-externals';
 
 const pkg = JSON.parse(fs.readFileSync('./package.json').toString());
+const OPEN_WEATHER_MAP_API_KEY = process.env.OPEN_WEATHER_MAP_API_KEY;
 
 export default {
   entry: {
@@ -50,6 +51,9 @@ export default {
       /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
       path.join(__dirname, 'src')
     ),
+    new webpack.DefinePlugin({
+      OPEN_WEATHER_MAP_API_KEY: JSON.stringify(OPEN_WEATHER_MAP_API_KEY)
+    }),
     new webpack.BannerPlugin({
       banner: `
 /**

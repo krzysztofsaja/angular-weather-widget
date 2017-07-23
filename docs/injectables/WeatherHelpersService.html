@@ -48,6 +48,12 @@
                                   <a href="../index.html" ><span class="fa fa-file-text-o"></span>README</a>
                                 </li>
                                 <li class="link">
+                                    <a href="./changelog.html"
+                                        >
+                                        <span class="fa fa-file-text-o"></span>CHANGELOG
+                                    </a>
+                                </li>
+                                <li class="link">
                                     <a href="./license.html"
                                         >
                                         <span class="fa fa-file-text-o"></span>LICENSE
@@ -200,6 +206,9 @@
                                     <a href="../interfaces/Forecast.html" >Forecast</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../interfaces/IconCodeType.html" >IconCodeType</a>
+                                </li>
+                                <li class="link">
                                     <a href="../interfaces/OpenWeatherMapCurrentWeatherResponse.html" >OpenWeatherMapCurrentWeatherResponse</a>
                                 </li>
                                 <li class="link">
@@ -267,6 +276,12 @@
                                        </li>
                                        <li class="link">
                                          <a href="../index.html" ><span class="fa fa-file-text-o"></span>README</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./changelog.html"
+                                               >
+                                               <span class="fa fa-file-text-o"></span>CHANGELOG
+                                           </a>
                                        </li>
                                        <li class="link">
                                            <a href="./license.html"
@@ -419,6 +434,9 @@
                                        </li>
                                        <li class="link">
                                            <a href="../interfaces/Forecast.html" >Forecast</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../interfaces/IconCodeType.html" >IconCodeType</a>
                                        </li>
                                        <li class="link">
                                            <a href="../interfaces/OpenWeatherMapCurrentWeatherResponse.html" >OpenWeatherMapCurrentWeatherResponse</a>
@@ -592,7 +610,7 @@
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">src/services/weather-helpers.service.ts:57</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">src/services/weather-helpers.service.ts:65</a></div>
                                         </td>
                                     </tr>
             
@@ -623,7 +641,7 @@
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="78" class="link-to-prism">src/services/weather-helpers.service.ts:78</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="92" class="link-to-prism">src/services/weather-helpers.service.ts:92</a></div>
                                         </td>
                                     </tr>
             
@@ -670,7 +688,7 @@ export class WeatherHelpersService {
   // Fixme: This function generates wrong icon for average day weather.
   // Weather icon is taken from first day measurement
   reduceToAveragePerDay(list: Forecast[]) {
-    return list.reduce((prev, curr) &#x3D;&gt; {
+    return list.reduce((prev: Forecast[], curr) &#x3D;&gt; {
       if (curr &amp;&amp; !curr.data) {
         prev.push(curr);
         return prev;
@@ -685,12 +703,20 @@ export class WeatherHelpersService {
       if (currDay &#x3D;&#x3D;&#x3D; prevDay) {
         const result: Forecast &#x3D; lastElement();
         result.temp &#x3D; (result.temp + curr.temp) / 2;
-        result.wind &#x3D; {
-          speed: (result.wind.speed + curr.wind.speed) / 2,
-          deg: (result.wind.deg + curr.wind.deg) / 2
-        };
-        result.humidity &#x3D; (result.humidity + curr.humidity) / 2;
-        result.pressure &#x3D; (result.pressure + curr.pressure) / 2;
+        if (result.wind &amp;&amp; curr.wind) {
+          result.wind &#x3D; {
+            speed: (result.wind.speed + curr.wind.speed) / 2,
+            deg: (result.wind.deg + curr.wind.deg) / 2
+          };
+        }
+
+        if (result.humidity &amp;&amp; curr.humidity) {
+          result.humidity &#x3D; (result.humidity + curr.humidity) / 2;
+        }
+        if (result.pressure &amp;&amp; curr.pressure) {
+          result.pressure &#x3D; (result.pressure + curr.pressure) / 2;
+        }
+
         prev[prev.length - 1] &#x3D; result;
         return prev;
       } else {
@@ -702,12 +728,18 @@ export class WeatherHelpersService {
 
   mapForecastToCharts(forecast: Forecast[], borderColor &#x3D; &#x27;#aaa&#x27;): ChartData {
     return forecast.reduce(
-      (prev, curr: Forecast) &#x3D;&gt; {
-        prev.labels.push(curr.data);
-        prev.datasets[0].data.push(curr.temp);
+      (prev: ChartData, curr: Forecast) &#x3D;&gt; {
+        if (prev.labels) {
+          prev.labels.push(curr.data.toISOString());
+        }
+        if (prev.datasets &amp;&amp; prev.datasets[0] &amp;&amp; prev.datasets[0].data) {
+          const data: number[] &#x3D; &lt;number[]&gt;prev.datasets[0].data;
+          data.push(curr.temp);
+        }
+
         return prev;
       },
-      {
+      &lt;ChartData&gt;{
         labels: [],
         datasets: [
           {

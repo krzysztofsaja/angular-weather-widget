@@ -48,6 +48,12 @@
                                   <a href="../index.html" ><span class="fa fa-file-text-o"></span>README</a>
                                 </li>
                                 <li class="link">
+                                    <a href="./changelog.html"
+                                        >
+                                        <span class="fa fa-file-text-o"></span>CHANGELOG
+                                    </a>
+                                </li>
+                                <li class="link">
                                     <a href="./license.html"
                                         >
                                         <span class="fa fa-file-text-o"></span>LICENSE
@@ -200,6 +206,9 @@
                                     <a href="../interfaces/Forecast.html"  data-type="entity-link" class="active" >Forecast</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../interfaces/IconCodeType.html" >IconCodeType</a>
+                                </li>
+                                <li class="link">
                                     <a href="../interfaces/OpenWeatherMapCurrentWeatherResponse.html" >OpenWeatherMapCurrentWeatherResponse</a>
                                 </li>
                                 <li class="link">
@@ -267,6 +276,12 @@
                                        </li>
                                        <li class="link">
                                          <a href="../index.html" ><span class="fa fa-file-text-o"></span>README</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./changelog.html"
+                                               >
+                                               <span class="fa fa-file-text-o"></span>CHANGELOG
+                                           </a>
                                        </li>
                                        <li class="link">
                                            <a href="./license.html"
@@ -421,6 +436,9 @@
                                            <a href="../interfaces/Forecast.html"  data-type="entity-link" class="active" >Forecast</a>
                                        </li>
                                        <li class="link">
+                                           <a href="../interfaces/IconCodeType.html" >IconCodeType</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="../interfaces/OpenWeatherMapCurrentWeatherResponse.html" >OpenWeatherMapCurrentWeatherResponse</a>
                                        </li>
                                        <li class="link">
@@ -560,7 +578,7 @@ export abstract class WeatherApiService {
     );
   }
 
-  forecast(queryParams: WeatherQueryParams): Observable&lt;Forecast&gt; {
+  forecast(queryParams: WeatherQueryParams): Observable&lt;Forecast[]&gt; {
     return this.callApi(queryParams, &#x27;/forecast&#x27;).map(
       this.mapForecastResponse.bind(this)
     );
@@ -572,7 +590,7 @@ export abstract class WeatherApiService {
   ): Observable&lt;any&gt; {
     const params &#x3D; this.mapQueryParams(queryParams);
     const requestOptions &#x3D; this.getRequestOptions(params);
-    const apiCall &#x3D; this.http
+    const apiCall: Observable&lt;any&gt; &#x3D; this.http
       .get(&#x60;${this.apiConfig.baseUrl}/${endpoint}&#x60;, requestOptions)
       .map(resp &#x3D;&gt; resp.json())
       .filter(el &#x3D;&gt; !!el);
@@ -581,7 +599,7 @@ export abstract class WeatherApiService {
 
   protected setTokenKey(): string {
     // Implement it in child service
-    return;
+    return &#x27;&#x27;;
   }
 
   protected mapQueryParams(params: WeatherQueryParams): any {
@@ -591,22 +609,22 @@ export abstract class WeatherApiService {
 
   protected mapCurrentWeatherResponse(response: any): CurrentWeather {
     // Implement it in child service
-    return;
+    return &lt;CurrentWeather&gt;{};
   }
 
   protected mapForecastResponse(response: any): Forecast[] {
     // Implement it in child service
-    return;
+    return &lt;Forecast[]&gt;[];
   }
 
   protected mapResponseToIconUrl(response: any): string {
-    return;
+    return &#x27;&#x27;;
   }
   protected mapResponseToIconClass(response: any): string {
-    return;
+    return &#x27;&#x27;;
   }
 
-  private wrapWithPoll(apiCall) {
+  private wrapWithPoll(apiCall: Observable&lt;any&gt;) {
     return this.poolingService.execute(() &#x3D;&gt; apiCall, this.poollingInterval);
   }
 
@@ -617,7 +635,7 @@ export abstract class WeatherApiService {
     });
   }
 
-  private getQueryParams(obj): URLSearchParams {
+  private getQueryParams(obj: { [key: string]: any }): URLSearchParams {
     const queryParams &#x3D; new URLSearchParams();
     queryParams.set(this.setTokenKey(), this.apiConfig.key);
     for (const key in obj) {
@@ -632,16 +650,16 @@ export abstract class WeatherApiService {
 export interface CurrentWeather {
   location: string;
   temp: number;
-  pressure: number;
-  humidity: number;
-  minTemp: number;
-  maxTemp: number;
+  pressure?: number;
+  humidity?: number;
+  minTemp?: number;
+  maxTemp?: number;
   sunrise?: number;
   sunset?: number;
   iconClass?: string;
   iconUrl?: string;
   description?: string;
-  wind: {
+  wind?: {
     deg: number;
     speed: number;
   };

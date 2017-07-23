@@ -48,6 +48,12 @@
                                   <a href="./index.html"  class="active" ><span class="fa fa-file-text-o"></span>README</a>
                                 </li>
                                 <li class="link">
+                                    <a href="./changelog.html"
+                                        >
+                                        <span class="fa fa-file-text-o"></span>CHANGELOG
+                                    </a>
+                                </li>
+                                <li class="link">
                                     <a href="./license.html"
                                         >
                                         <span class="fa fa-file-text-o"></span>LICENSE
@@ -200,6 +206,9 @@
                                     <a href="./interfaces/Forecast.html" >Forecast</a>
                                 </li>
                                 <li class="link">
+                                    <a href="./interfaces/IconCodeType.html" >IconCodeType</a>
+                                </li>
+                                <li class="link">
                                     <a href="./interfaces/OpenWeatherMapCurrentWeatherResponse.html" >OpenWeatherMapCurrentWeatherResponse</a>
                                 </li>
                                 <li class="link">
@@ -267,6 +276,12 @@
                                        </li>
                                        <li class="link">
                                          <a href="./index.html"  class="active" ><span class="fa fa-file-text-o"></span>README</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./changelog.html"
+                                               >
+                                               <span class="fa fa-file-text-o"></span>CHANGELOG
+                                           </a>
                                        </li>
                                        <li class="link">
                                            <a href="./license.html"
@@ -421,6 +436,9 @@
                                            <a href="./interfaces/Forecast.html" >Forecast</a>
                                        </li>
                                        <li class="link">
+                                           <a href="./interfaces/IconCodeType.html" >IconCodeType</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="./interfaces/OpenWeatherMapCurrentWeatherResponse.html" >OpenWeatherMapCurrentWeatherResponse</a>
                                        </li>
                                        <li class="link">
@@ -483,7 +501,7 @@
 <p>Install through npm:</p>
 <pre class="line-numbers"><code class="language-none">npm install --save angular-weather-widget</code></pre><p>Then include in your apps module:</p>
 <pre class="line-numbers"><code class="language-typescript">import { Component, NgModule } from &#39;&#64;angular/core&#39;;
-import { AngularWeatherWidgetModule } from &#39;angular-weather&#39;;
+import { AngularWeatherWidgetModule, WeatherApiName } from &#39;angular-weather-widget&#39;;
 
 &#64;NgModule({
   imports: [
@@ -500,7 +518,7 @@ import { WeatherSettings, TemperatureScale, ForecastMode } from &#39;angular-wea
 
 
 &#64;Component({
-  template: &#39;&lt;weather-widget [settings]=&quot;settings&quot;&gt;&lt;/weather-container&gt;&#39;
+  template: &#39;&lt;weather-widget [settings]=&quot;settings&quot;&gt;&lt;/weather-widget&gt;&#39;
 })
 export class MyComponent {
     settings: WeatherSettings = {

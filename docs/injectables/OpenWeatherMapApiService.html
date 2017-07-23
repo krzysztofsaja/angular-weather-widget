@@ -48,6 +48,12 @@
                                   <a href="../index.html" ><span class="fa fa-file-text-o"></span>README</a>
                                 </li>
                                 <li class="link">
+                                    <a href="./changelog.html"
+                                        >
+                                        <span class="fa fa-file-text-o"></span>CHANGELOG
+                                    </a>
+                                </li>
+                                <li class="link">
                                     <a href="./license.html"
                                         >
                                         <span class="fa fa-file-text-o"></span>LICENSE
@@ -200,6 +206,9 @@
                                     <a href="../interfaces/Forecast.html" >Forecast</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../interfaces/IconCodeType.html" >IconCodeType</a>
+                                </li>
+                                <li class="link">
                                     <a href="../interfaces/OpenWeatherMapCurrentWeatherResponse.html" >OpenWeatherMapCurrentWeatherResponse</a>
                                 </li>
                                 <li class="link">
@@ -267,6 +276,12 @@
                                        </li>
                                        <li class="link">
                                          <a href="../index.html" ><span class="fa fa-file-text-o"></span>README</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./changelog.html"
+                                               >
+                                               <span class="fa fa-file-text-o"></span>CHANGELOG
+                                           </a>
                                        </li>
                                        <li class="link">
                                            <a href="./license.html"
@@ -419,6 +434,9 @@
                                        </li>
                                        <li class="link">
                                            <a href="../interfaces/Forecast.html" >Forecast</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../interfaces/IconCodeType.html" >IconCodeType</a>
                                        </li>
                                        <li class="link">
                                            <a href="../interfaces/OpenWeatherMapCurrentWeatherResponse.html" >OpenWeatherMapCurrentWeatherResponse</a>
@@ -595,7 +613,7 @@
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="69" class="link-to-prism">src/services/api/open-weather-map/open-weather-map.api.service.ts:69</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="75" class="link-to-prism">src/services/api/open-weather-map/open-weather-map.api.service.ts:75</a></div>
                                         </td>
                                     </tr>
             
@@ -627,7 +645,7 @@
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="96" class="link-to-prism">src/services/api/open-weather-map/open-weather-map.api.service.ts:96</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="102" class="link-to-prism">src/services/api/open-weather-map/open-weather-map.api.service.ts:102</a></div>
                                         </td>
                                     </tr>
             
@@ -659,7 +677,7 @@
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="102" class="link-to-prism">src/services/api/open-weather-map/open-weather-map.api.service.ts:102</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="108" class="link-to-prism">src/services/api/open-weather-map/open-weather-map.api.service.ts:108</a></div>
                                         </td>
                                     </tr>
             
@@ -691,7 +709,7 @@
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="118" class="link-to-prism">src/services/api/open-weather-map/open-weather-map.api.service.ts:118</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="124" class="link-to-prism">src/services/api/open-weather-map/open-weather-map.api.service.ts:124</a></div>
                                         </td>
                                     </tr>
             
@@ -743,10 +761,16 @@
                             </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <code>iconCodes:     <code></code>
+                                    <code>iconCodes:     <code><a href="../interfaces/IconCodeType.html" target="_self" >IconCodeType</a></code>
             </bcode>
                                 </td>
                             </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <i>Type : </i>    <code><a href="../interfaces/IconCodeType.html" target="_self" >IconCodeType</a></code>
+            
+                                    </td>
+                                </tr>
                                     <tr>
                                         <td class="col-md-4">
                                             <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/services/api/open-weather-map/open-weather-map.api.service.ts:17</a></div>
@@ -796,12 +820,12 @@ import {
   WeatherApiConfig,
   WeatherApiService
 } from &#x27;../weather.api.service&#x27;;
-import { iconCodes } from &#x27;./open-weather-map-to-weather-icons&#x27;;
+import { iconCodes, IconCodeType } from &#x27;./open-weather-map-to-weather-icons&#x27;;
 import { WeatherQueryParams } from &#x27;../../../weather.interfaces&#x27;;
 
 @Injectable()
 export class OpenWeatherMapApiService extends WeatherApiService {
-  iconCodes;
+  iconCodes: IconCodeType;
   iconCodes$: Observable&lt;any&gt;;
   constructor(
     protected http: Http,
@@ -818,10 +842,10 @@ export class OpenWeatherMapApiService extends WeatherApiService {
     const mapped: OpenWeatherMapLocationRequest &#x3D; {
       id: params.cityId,
       q: params.cityName,
-      lat: params.latLng.lat,
-      lon: params.latLng.lng,
+      lat: params.latLng ? params.latLng.lat : undefined,
+      lon: params.latLng ? params.latLng.lng : undefined,
       zip: params.zipCode,
-      units: this.mapUnits(params.units),
+      units: params.units ? this.mapUnits(params.units) : undefined,
       lang: params.lang
     };
     return mapped;
@@ -831,16 +855,22 @@ export class OpenWeatherMapApiService extends WeatherApiService {
     response: OpenWeatherMapCurrentWeatherResponse
   ): CurrentWeather {
     if (!response) {
-      return;
+      return &lt;CurrentWeather&gt;{};
     }
     const weather: CurrentWeather &#x3D; {
       temp: response.main.temp,
-      pressure: response.main.pressure,
-      humidity: response.main.humidity,
-      minTemp: response.main.temp_min,
-      maxTemp: response.main.temp_max,
-      sunrise: response.sys.sunrise,
-      sunset: response.sys.sunset,
+      pressure: response.main ? response.main.pressure : undefined,
+      humidity: response.main ? response.main.humidity : undefined,
+      minTemp:
+        response.main &amp;&amp; response.main.temp
+          ? response.main.temp_min
+          : undefined,
+      maxTemp:
+        response.main &amp;&amp; response.main.temp
+          ? response.main.temp_max
+          : undefined,
+      sunrise: response.sys ? response.sys.sunrise : undefined,
+      sunset: response.sys ? response.sys.sunset : undefined,
       location: response.name,
       iconUrl: this.mapResponseToIconUrl(response),
       iconClass: this.mapResponseToIconClass(response),
@@ -857,7 +887,7 @@ export class OpenWeatherMapApiService extends WeatherApiService {
     response: OpenWeatherMapForecastResponse
   ): Forecast[] {
     if (!response) {
-      return;
+      return &lt;Forecast[]&gt;[];
     }
     const city &#x3D; response.city;
     return response.list.map((el: OpenWeatherMapForecastResponseElement) &#x3D;&gt; {

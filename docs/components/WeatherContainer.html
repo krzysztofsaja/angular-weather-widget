@@ -48,6 +48,12 @@
                                   <a href="../index.html" ><span class="fa fa-file-text-o"></span>README</a>
                                 </li>
                                 <li class="link">
+                                    <a href="./changelog.html"
+                                        >
+                                        <span class="fa fa-file-text-o"></span>CHANGELOG
+                                    </a>
+                                </li>
+                                <li class="link">
                                     <a href="./license.html"
                                         >
                                         <span class="fa fa-file-text-o"></span>LICENSE
@@ -200,6 +206,9 @@
                                     <a href="../interfaces/Forecast.html" >Forecast</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../interfaces/IconCodeType.html" >IconCodeType</a>
+                                </li>
+                                <li class="link">
                                     <a href="../interfaces/OpenWeatherMapCurrentWeatherResponse.html" >OpenWeatherMapCurrentWeatherResponse</a>
                                 </li>
                                 <li class="link">
@@ -267,6 +276,12 @@
                                        </li>
                                        <li class="link">
                                          <a href="../index.html" ><span class="fa fa-file-text-o"></span>README</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./changelog.html"
+                                               >
+                                               <span class="fa fa-file-text-o"></span>CHANGELOG
+                                           </a>
                                        </li>
                                        <li class="link">
                                            <a href="./license.html"
@@ -419,6 +434,9 @@
                                        </li>
                                        <li class="link">
                                            <a href="../interfaces/Forecast.html" >Forecast</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../interfaces/IconCodeType.html" >IconCodeType</a>
                                        </li>
                                        <li class="link">
                                            <a href="../interfaces/OpenWeatherMapCurrentWeatherResponse.html" >OpenWeatherMapCurrentWeatherResponse</a>
@@ -789,13 +807,13 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                            <code>forecast$:     <code><a href="../interfaces/Forecast.html" target="_self" >Observable&lt;Forecast&gt;</a></code>
+                            <code>forecast$:     <code>Observable&lt;[]&gt;</code>
     </bcode>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                <i>Type : </i>    <code><a href="../interfaces/Forecast.html" target="_self" >Observable&lt;Forecast&gt;</a></code>
+                                <i>Type : </i>    <code>Observable&lt;[]&gt;</code>
     
                             </td>
                         </tr>
@@ -1084,7 +1102,7 @@ class WeatherContainer implements OnDestroy {
   @HostBinding(&#x27;style.width&#x27;) width &#x3D; &#x27;auto&#x27;;
   @HostBinding(&#x27;style.height&#x27;) height &#x3D; &#x27;auto&#x27;;
 
-  @Input() forecast: Forecast | null;
+  @Input() forecast: Forecast[] | null;
   @Input() currentWeather: CurrentWeather | null;
   @Input()
   set settings(value: WeatherSettings) {
@@ -1108,7 +1126,7 @@ class WeatherContainer implements OnDestroy {
   subscriptionCurrentWeather: Subscription;
   subscriptionForecast: Subscription;
   currentWeather$: Observable&lt;CurrentWeather&gt;;
-  forecast$: Observable&lt;Forecast&gt;;
+  forecast$: Observable&lt;Forecast[]&gt;;
   isMouseOn: boolean;
 
   private _settings: WeatherSettings;
@@ -1169,7 +1187,7 @@ class WeatherContainer implements OnDestroy {
     return this.weatherApi.currentWeather(params);
   }
 
-  forecastCall(): Observable&lt;Forecast&gt; {
+  forecastCall(): Observable&lt;Forecast[]&gt; {
     const params: WeatherQueryParams &#x3D; Object.assign(
       {},
       this.settings.location,

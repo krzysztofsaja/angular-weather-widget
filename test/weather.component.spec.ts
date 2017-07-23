@@ -8,6 +8,9 @@ import {
   CURRENT_WATHER_MOCK,
   FORECAST_MOCK
 } from '../src/mocks/open-weather-map.mock';
+import { Observable } from 'rxjs/Observable';
+import { HttpModule, XHRBackend } from '@angular/http';
+import { MockBackend } from '@angular/http/testing';
 
 declare var OPEN_WEATHER_MAP_API_KEY: string;
 let instance: WeatherContainer, fixture: ComponentFixture<WeatherContainer>;
@@ -15,12 +18,14 @@ describe('weather-container', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
+        HttpModule,
         AngularWeatherWidgetModule.forRoot({
           key: 'testkey',
           name: WeatherApiName.OPEN_WEATHER_MAP,
           baseUrl: 'http://api.openweathermap.org/data/2.5'
         })
-      ]
+      ],
+      providers: [{ provide: XHRBackend, useClass: MockBackend }]
     });
     fixture = TestBed.createComponent(WeatherContainer);
     instance = fixture.componentInstance;

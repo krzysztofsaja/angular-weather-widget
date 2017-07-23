@@ -1,7 +1,7 @@
-import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { Forecast } from '../../../services/api/weather.api.service';
-import { WeatherSettings } from '../../../weather.container';
 import { WeatherHelpersService } from '../../../services/weather-helpers.service';
+import { WeatherSettings } from '../../../weather.interfaces';
 
 @Component({
   selector: 'weather-forecast-detailed',

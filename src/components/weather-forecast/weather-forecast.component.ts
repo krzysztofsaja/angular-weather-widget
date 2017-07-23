@@ -1,13 +1,7 @@
-import {
-  Component,
-  ChangeDetectionStrategy,
-  Input,
-  Output,
-  EventEmitter
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { Forecast } from '../../services/api/weather.api.service';
+import { ForecastMode, WeatherSettings } from '../../weather.interfaces';
 import preventExtensions = Reflect.preventExtensions;
-import { WeatherSettings } from '../../weather.container';
 
 @Component({
   selector: 'weather-forecast',
@@ -63,9 +57,4 @@ export class WeatherForecastComponent {
     return this._forecast;
   }
   private _forecast: Forecast[];
-}
-
-export enum ForecastMode {
-  GRID = <any>'GRID',
-  DETAILED = <any>'DETAILED'
 }

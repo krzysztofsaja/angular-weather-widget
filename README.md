@@ -50,11 +50,29 @@ export class MyModule {}
 Finally use in one of your apps components:
 ```typescript
 import { Component } from '@angular/core';
+import { WeatherSettings, TemperatureScale, ForecastMode } from 'angular-weather-widget';
+
 
 @Component({
-  template: '<weather-container [settings]="settings"></weather-container>'
+  template: '<weather-widget [settings]="settings"></weather-container>'
 })
-export class MyComponent {}
+export class MyComponent {
+    settings: WeatherSettings = {
+      location: {
+        cityName: 'Szczecin'
+      },
+      backgroundColor: '#347c57',
+      color: '#ffffff',
+      width: '300px',
+      height: 'auto',
+      showWind: false,
+      scale: TemperatureScale.CELCIUS,
+      forecastMode: ForecastMode.DETAILED,
+      showDetails: false,
+      showForecast: true,
+      language: 'en'
+    };
+}
 ```
 
 You may also find it useful to view the [demo source](https://github.com/krzysztofsaja/angular-weather/blob/master/demo/demo.component.ts).

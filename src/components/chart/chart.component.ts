@@ -36,7 +36,6 @@ export class ChartComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges) {
     if (this.chart && changes['data']) {
       const currentValue = changes['data'].currentValue;
-      console.log(changes);
       ['datasets', 'labels', 'xLabels', 'yLabels'].forEach(property => {
         this.chart.data[property] = currentValue[property];
       });

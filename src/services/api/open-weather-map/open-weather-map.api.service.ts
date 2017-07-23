@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+import { TemperatureScale } from '../../../components/weather-current-temperature/current-temperature.component';
 import { PoolingService } from '../../poling.service';
 import {
   CurrentWeather,
   Forecast,
   WeatherApiConfig,
-  WeatherApiService,
-  WeatherQueryParams
+  WeatherApiService
 } from '../weather.api.service';
-import { Observable } from 'rxjs/Observable';
 import { iconCodes } from './open-weather-map-to-weather-icons';
-import { TemperatureScale } from '../../../components/weather-current-temperature/current-temperature.component';
+import { WeatherQueryParams } from '../../../weather.interfaces';
 
 @Injectable()
 export class OpenWeatherMapApiService extends WeatherApiService {

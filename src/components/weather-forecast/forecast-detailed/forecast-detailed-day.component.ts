@@ -1,15 +1,14 @@
 import {
-  Component,
   ChangeDetectionStrategy,
+  Component,
   Input,
   OnChanges,
-  SimpleChange,
   SimpleChanges
 } from '@angular/core';
+import { ChartData, ChartOptions } from 'chart.js';
 import { Forecast } from '../../../services/api/weather.api.service';
-import { Chart, ChartData, ChartOptions } from 'chart.js';
-import { WeatherSettings } from '../../../weather.container';
 import { WeatherHelpersService } from '../../../services/weather-helpers.service';
+import { WeatherSettings } from '../../../weather.interfaces';
 
 @Component({
   selector: 'weather-forecast-detail-day',

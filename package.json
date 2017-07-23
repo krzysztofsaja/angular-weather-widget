@@ -20,7 +20,7 @@
     "copyfiles": "copyfiles package.json LICENSE README.md CHANGELOG.md dist && node tools/package-json-cleanup.js",
     "link": "npm run build:dist && npm run copyfiles && cd dist && npm link && cd ..",
     "prerelease": "npm test",
-    "release:git": "git add package.json && git commit -m \"chore: bump version number\" && standard-version --first-release && git push --follow-tags origin master",
+    "release:git": "git add package.json && git commit -m \"chore: bump version number\" && standard-version && git push --follow-tags origin master",
     "release:npm": "npm run build:dist && npm run copyfiles && npm publish dist",
     "release": "npm run release:git && npm run release:npm",
     "postrelease": "npm run build:clean && npm run gh-pages",

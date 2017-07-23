@@ -54,7 +54,7 @@ import { WeatherSettings, TemperatureScale, ForecastMode } from 'angular-weather
 
 
 @Component({
-  template: '<weather-widget [settings]="settings"></weather-container>'
+  template: '<weather-widget [settings]="settings"></weather-widget>'
 })
 export class MyComponent {
     settings: WeatherSettings = {

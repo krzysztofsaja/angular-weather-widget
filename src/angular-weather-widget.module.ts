@@ -81,3 +81,4 @@ export class AngularWeatherWidgetModule {
   static forRoot = forRoot;
 }
 export * from './weather.interfaces';
+export { WeatherApiName } from './services/api/weather.api.service';

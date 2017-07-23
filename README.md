@@ -33,7 +33,7 @@ Then include in your apps module:
 
 ```typescript
 import { Component, NgModule } from '@angular/core';
-import { AngularWeatherWidgetModule } from 'angular-weather';
+import { AngularWeatherWidgetModule, WeatherApiName } from 'angular-weather-widget';
 
 @NgModule({
   imports: [
@@ -54,7 +54,7 @@ import { WeatherSettings, TemperatureScale, ForecastMode } from 'angular-weather
 
 
 @Component({
-  template: '<weather-widget [settings]="settings"></weather-container>'
+  template: '<weather-widget [settings]="settings"></weather-widget>'
 })
 export class MyComponent {
     settings: WeatherSettings = {

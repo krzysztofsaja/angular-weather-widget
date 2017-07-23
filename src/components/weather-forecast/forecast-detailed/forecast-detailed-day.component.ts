@@ -97,9 +97,10 @@ export class WeatherForecastDetailDayComponent implements OnChanges {
             },
             ticks: {
               display: true,
-              fontColor: this.settings
-                ? this.weatherHelpers.hexToRgbA(this.settings.color, '0.8')
-                : 'white',
+              fontColor:
+                this.settings && this.settings.color
+                  ? this.weatherHelpers.hexToRgbA(this.settings.color, '0.8')
+                  : 'white',
               fontSize: 9,
               maxTicksLimit: 3
             }
@@ -111,9 +112,10 @@ export class WeatherForecastDetailDayComponent implements OnChanges {
               display: false
             },
             ticks: {
-              fontColor: this.settings
-                ? this.weatherHelpers.hexToRgbA(this.settings.color, '0.8')
-                : 'white',
+              fontColor:
+                this.settings && this.settings.color
+                  ? this.weatherHelpers.hexToRgbA(this.settings.color, '0.8')
+                  : 'white',
               fontSize: 9,
               autoSkip: true,
               labelOffset: 0,

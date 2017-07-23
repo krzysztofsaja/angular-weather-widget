@@ -2,8 +2,9 @@ import {
   OpenWeatherMapCurrentWeatherResponse,
   OpenWeatherMapForecastResponse
 } from '../services/api/open-weather-map/open-weather-map.api.service';
+import { CurrentWeather , Forecast } from '../services/api/weather.api.service';
 
-const OPEN_WEATHER_MAP_RESPONSE_MOCK: OpenWeatherMapCurrentWeatherResponse = {
+export const OPEN_WEATHER_MAP_RESPONSE_MOCK: OpenWeatherMapCurrentWeatherResponse = {
   coord: { lon: 14.62, lat: 53.43 },
   weather: [
     { id: 803, main: 'Clouds', description: 'broken clouds', icon: '04d' }
@@ -34,7 +35,7 @@ const OPEN_WEATHER_MAP_RESPONSE_MOCK: OpenWeatherMapCurrentWeatherResponse = {
 };
 
 //noinspection TsLint
-const OPEN_WEATHER_MAP_FORECAST: OpenWeatherMapForecastResponse = {
+export const OPEN_WEATHER_MAP_FORECAST: OpenWeatherMapForecastResponse = {
   cod: '200',
   message: 0.0077,
   cnt: 36,
@@ -772,3 +773,620 @@ const OPEN_WEATHER_MAP_FORECAST: OpenWeatherMapForecastResponse = {
     country: 'US'
   }
 };
+
+export const CURRENT_WATHER_MOCK: CurrentWeather = {
+  'temp': 16 ,
+  'pressure': 1012 ,
+  'humidity': 93 ,
+  'minTemp': 16 ,
+  'maxTemp': 16 ,
+  'sunrise': 1500779092 ,
+  'sunset': 1500837045 ,
+  'location': 'Szczecin' ,
+  'iconUrl': 'http://openweathermap.org/img/w/01n.png' ,
+  'description': 'clear sky' ,
+  'iconClass': 'wi wi-day-sunny' ,
+  'wind': { 'deg': 240 , 'speed': 2.1 }
+};
+export const FORECAST_MOCK: Forecast[] = [
+  {
+    'temp': 12.15,
+    'pressure': 1023.27,
+    'humidity': 98,
+    'minTemp': 12.15,
+    'maxTemp': 12.84,
+    'location': 'Szczecin',
+    'iconClass': 'wi wi-day-sunny',
+    'description': 'clear sky',
+    'data': new Date('2017-07-24T00:00:00.000Z'),
+    'wind': {
+      'deg': 230,
+      'speed': 1.31
+    }
+  },
+  {
+    'temp': 12.12,
+    'pressure': 1022.4,
+    'humidity': 95,
+    'minTemp': 12.12,
+    'maxTemp': 12.57,
+    'location': 'Szczecin',
+    'iconClass': 'wi wi-day-cloudy',
+    'description': 'scattered clouds',
+    'data': new Date('2017-07-24T03:00:00.000Z'),
+    'wind': {
+      'deg': 214.003,
+      'speed': 1.22
+    }
+  },
+  {
+    'temp': 16.33,
+    'pressure': 1021.75,
+    'humidity': 100,
+    'minTemp': 16.33,
+    'maxTemp': 16.56,
+    'location': 'Szczecin',
+    'iconClass': 'wi wi-day-rain',
+    'description': 'light rain',
+    'data': new Date('2017-07-24T06:00:00.000Z'),
+    'wind': {
+      'deg': 208.502,
+      'speed': 1.88
+    }
+  },
+  {
+    'temp': 17.83,
+    'pressure': 1021.07,
+    'humidity': 100,
+    'minTemp': 17.83,
+    'maxTemp': 17.83,
+    'location': 'Szczecin',
+    'iconClass': 'wi wi-day-rain',
+    'description': 'light rain',
+    'data': new Date('2017-07-24T09:00:00.000Z'),
+    'wind': {
+      'deg': 160.501,
+      'speed': 1.81
+    }
+  },
+  {
+    'temp': 19.67,
+    'pressure': 1019.82,
+    'humidity': 94,
+    'minTemp': 19.67,
+    'maxTemp': 19.67,
+    'location': 'Szczecin',
+    'iconClass': 'wi wi-day-rain',
+    'description': 'light rain',
+    'data': new Date('2017-07-24T12:00:00.000Z'),
+    'wind': {
+      'deg': 46.0059,
+      'speed': 2.06
+    }
+  },
+  {
+    'temp': 20.34,
+    'pressure': 1018.38,
+    'humidity': 83,
+    'minTemp': 20.34,
+    'maxTemp': 20.34,
+    'location': 'Szczecin',
+    'iconClass': 'wi wi-day-cloudy',
+    'description': 'scattered clouds',
+    'data': new Date('2017-07-24T15:00:00.000Z'),
+    'wind': {
+      'deg': 58.0007,
+      'speed': 4.37
+    }
+  },
+  {
+    'temp': 19.08,
+    'pressure': 1017.51,
+    'humidity': 79,
+    'minTemp': 19.08,
+    'maxTemp': 19.08,
+    'location': 'Szczecin',
+    'iconClass': 'wi wi-day-sunny',
+    'description': 'clear sky',
+    'data': new Date('2017-07-24T18:00:00.000Z'),
+    'wind': {
+      'deg': 53.5011,
+      'speed': 4.12
+    }
+  },
+  {
+    'temp': 16.5,
+    'pressure': 1017.11,
+    'humidity': 90,
+    'minTemp': 16.5,
+    'maxTemp': 16.5,
+    'location': 'Szczecin',
+    'iconClass': 'wi wi-day-cloudy',
+    'description': 'scattered clouds',
+    'data': new Date('2017-07-24T21:00:00.000Z'),
+    'wind': {
+      'deg': 61.0009,
+      'speed': 4.32
+    }
+  },
+  {
+    'temp': 15.74,
+    'pressure': 1016.22,
+    'humidity': 93,
+    'minTemp': 15.74,
+    'maxTemp': 15.74,
+    'location': 'Szczecin',
+    'iconClass': 'wi wi-day-cloudy',
+    'description': 'scattered clouds',
+    'data': new Date('2017-07-25T00:00:00.000Z'),
+    'wind': {
+      'deg': 61.0023,
+      'speed': 5.21
+    }
+  },
+  {
+    'temp': 14.73,
+    'pressure': 1015.48,
+    'humidity': 91,
+    'minTemp': 14.73,
+    'maxTemp': 14.73,
+    'location': 'Szczecin',
+    'iconClass': 'wi wi-day-cloudy',
+    'description': 'overcast clouds',
+    'data': new Date('2017-07-25T03:00:00.000Z'),
+    'wind': {
+      'deg': 55.5011,
+      'speed': 5.8
+    }
+  },
+  {
+    'temp': 15.96,
+    'pressure': 1014.59,
+    'humidity': 91,
+    'minTemp': 15.96,
+    'maxTemp': 15.96,
+    'location': 'Szczecin',
+    'iconClass': 'wi wi-day-cloudy',
+    'description': 'overcast clouds',
+    'data': new Date('2017-07-25T06:00:00.000Z'),
+    'wind': {
+      'deg': 50.0026,
+      'speed': 6.26
+    }
+  },
+  {
+    'temp': 17.32,
+    'pressure': 1013.65,
+    'humidity': 88,
+    'minTemp': 17.32,
+    'maxTemp': 17.32,
+    'location': 'Szczecin',
+    'iconClass': 'wi wi-day-rain',
+    'description': 'light rain',
+    'data': new Date('2017-07-25T09:00:00.000Z'),
+    'wind': {
+      'deg': 38.0018,
+      'speed': 6.32
+    }
+  },
+  {
+    'temp': 17.94,
+    'pressure': 1013.1,
+    'humidity': 89,
+    'minTemp': 17.94,
+    'maxTemp': 17.94,
+    'location': 'Szczecin',
+    'iconClass': 'wi wi-day-rain',
+    'description': 'light rain',
+    'data': new Date('2017-07-25T12:00:00.000Z'),
+    'wind': {
+      'deg': 34.0001,
+      'speed': 6.71
+    }
+  },
+  {
+    'temp': 18.33,
+    'pressure': 1012.34,
+    'humidity': 88,
+    'minTemp': 18.33,
+    'maxTemp': 18.33,
+    'location': 'Szczecin',
+    'iconClass': 'wi wi-day-rain',
+    'description': 'light rain',
+    'data': new Date('2017-07-25T15:00:00.000Z'),
+    'wind': {
+      'deg': 22.5005,
+      'speed': 6.28
+    }
+  },
+  {
+    'temp': 18.12,
+    'pressure': 1012.23,
+    'humidity': 94,
+    'minTemp': 18.12,
+    'maxTemp': 18.12,
+    'location': 'Szczecin',
+    'iconClass': 'wi wi-day-rain',
+    'description': 'light rain',
+    'data': new Date('2017-07-25T18:00:00.000Z'),
+    'wind': {
+      'deg': 35.5031,
+      'speed': 4.76
+    }
+  },
+  {
+    'temp': 17.29,
+    'pressure': 1012.18,
+    'humidity': 97,
+    'minTemp': 17.29,
+    'maxTemp': 17.29,
+    'location': 'Szczecin',
+    'iconClass': 'wi wi-day-rain',
+    'description': 'light rain',
+    'data': new Date('2017-07-25T21:00:00.000Z'),
+    'wind': {
+      'deg': 19.0016,
+      'speed': 4.7
+    }
+  },
+  {
+    'temp': 16.7,
+    'pressure': 1011.83,
+    'humidity': 99,
+    'minTemp': 16.7,
+    'maxTemp': 16.7,
+    'location': 'Szczecin',
+    'iconClass': 'wi wi-day-rain',
+    'description': 'moderate rain',
+    'data': new Date('2017-07-26T00:00:00.000Z'),
+    'wind': {
+      'deg': 5.50293,
+      'speed': 4.91
+    }
+  },
+  {
+    'temp': 16.91,
+    'pressure': 1010.72,
+    'humidity': 100,
+    'minTemp': 16.91,
+    'maxTemp': 16.91,
+    'location': 'Szczecin',
+    'iconClass': 'wi wi-day-rain',
+    'description': 'heavy intensity rain',
+    'data': new Date('2017-07-26T03:00:00.000Z'),
+    'wind': {
+      'deg': 3.50137,
+      'speed': 5.71
+    }
+  },
+  {
+    'temp': 17.51,
+    'pressure': 1010.52,
+    'humidity': 100,
+    'minTemp': 17.51,
+    'maxTemp': 17.51,
+    'location': 'Szczecin',
+    'iconClass': 'wi wi-day-rain',
+    'description': 'moderate rain',
+    'data': new Date('2017-07-26T06:00:00.000Z'),
+    'wind': {
+      'deg': 10.0021,
+      'speed': 6.07
+    }
+  },
+  {
+    'temp': 17.8,
+    'pressure': 1010.87,
+    'humidity': 99,
+    'minTemp': 17.8,
+    'maxTemp': 17.8,
+    'location': 'Szczecin',
+    'iconClass': 'wi wi-day-rain',
+    'description': 'moderate rain',
+    'data': new Date('2017-07-26T09:00:00.000Z'),
+    'wind': {
+      'deg': 352.006,
+      'speed': 7.05
+    }
+  },
+  {
+    'temp': 17.31,
+    'pressure': 1011.43,
+    'humidity': 100,
+    'minTemp': 17.31,
+    'maxTemp': 17.31,
+    'location': 'Szczecin',
+    'iconClass': 'wi wi-day-rain',
+    'description': 'moderate rain',
+    'data': new Date('2017-07-26T12:00:00.000Z'),
+    'wind': {
+      'deg': 341,
+      'speed': 7.86
+    }
+  },
+  {
+    'temp': 16.95,
+    'pressure': 1012.15,
+    'humidity': 100,
+    'minTemp': 16.95,
+    'maxTemp': 16.95,
+    'location': 'Szczecin',
+    'iconClass': 'wi wi-day-rain',
+    'description': 'heavy intensity rain',
+    'data': new Date('2017-07-26T15:00:00.000Z'),
+    'wind': {
+      'deg': 341.003,
+      'speed': 9.36
+    }
+  },
+  {
+    'temp': 16.5,
+    'pressure': 1013.07,
+    'humidity': 100,
+    'minTemp': 16.5,
+    'maxTemp': 16.5,
+    'location': 'Szczecin',
+    'iconClass': 'wi wi-day-rain',
+    'description': 'moderate rain',
+    'data': new Date('2017-07-26T18:00:00.000Z'),
+    'wind': {
+      'deg': 335.503,
+      'speed': 9.02
+    }
+  },
+  {
+    'temp': 16.52,
+    'pressure': 1014.24,
+    'humidity': 98,
+    'minTemp': 16.52,
+    'maxTemp': 16.52,
+    'location': 'Szczecin',
+    'iconClass': 'wi wi-day-rain',
+    'description': 'moderate rain',
+    'data': new Date('2017-07-26T21:00:00.000Z'),
+    'wind': {
+      'deg': 332.504,
+      'speed': 8.36
+    }
+  },
+  {
+    'temp': 16.52,
+    'pressure': 1014.91,
+    'humidity': 98,
+    'minTemp': 16.52,
+    'maxTemp': 16.52,
+    'location': 'Szczecin',
+    'iconClass': 'wi wi-day-rain',
+    'description': 'light rain',
+    'data': new Date('2017-07-27T00:00:00.000Z'),
+    'wind': {
+      'deg': 325.002,
+      'speed': 6.92
+    }
+  },
+  {
+    'temp': 15.54,
+    'pressure': 1015.18,
+    'humidity': 99,
+    'minTemp': 15.54,
+    'maxTemp': 15.54,
+    'location': 'Szczecin',
+    'iconClass': 'wi wi-day-rain',
+    'description': 'light rain',
+    'data': new Date('2017-07-27T03:00:00.000Z'),
+    'wind': {
+      'deg': 317.5,
+      'speed': 6.03
+    }
+  },
+  {
+    'temp': 16.84,
+    'pressure': 1015.29,
+    'humidity': 98,
+    'minTemp': 16.84,
+    'maxTemp': 16.84,
+    'location': 'Szczecin',
+    'iconClass': 'wi wi-day-cloudy',
+    'description': 'few clouds',
+    'data': new Date('2017-07-27T06:00:00.000Z'),
+    'wind': {
+      'deg': 311.002,
+      'speed': 5.91
+    }
+  },
+  {
+    'temp': 19.49,
+    'pressure': 1015.23,
+    'humidity': 94,
+    'minTemp': 19.49,
+    'maxTemp': 19.49,
+    'location': 'Szczecin',
+    'iconClass': 'wi wi-day-sunny',
+    'description': 'clear sky',
+    'data': new Date('2017-07-27T09:00:00.000Z'),
+    'wind': {
+      'deg': 310.503,
+      'speed': 5.12
+    }
+  },
+  {
+    'temp': 21.25,
+    'pressure': 1014.83,
+    'humidity': 90,
+    'minTemp': 21.25,
+    'maxTemp': 21.25,
+    'location': 'Szczecin',
+    'iconClass': 'wi wi-day-sunny',
+    'description': 'clear sky',
+    'data': new Date('2017-07-27T12:00:00.000Z'),
+    'wind': {
+      'deg': 304.006,
+      'speed': 3.58
+    }
+  },
+  {
+    'temp': 22.03,
+    'pressure': 1013.89,
+    'humidity': 87,
+    'minTemp': 22.03,
+    'maxTemp': 22.03,
+    'location': 'Szczecin',
+    'iconClass': 'wi wi-day-sunny',
+    'description': 'clear sky',
+    'data': new Date('2017-07-27T15:00:00.000Z'),
+    'wind': {
+      'deg': 274.002,
+      'speed': 2.07
+    }
+  },
+  {
+    'temp': 19.4,
+    'pressure': 1013.74,
+    'humidity': 93,
+    'minTemp': 19.4,
+    'maxTemp': 19.4,
+    'location': 'Szczecin',
+    'iconClass': 'wi wi-day-rain',
+    'description': 'light rain',
+    'data': new Date('2017-07-27T18:00:00.000Z'),
+    'wind': {
+      'deg': 233.001,
+      'speed': 3.86
+    }
+  },
+  {
+    'temp': 17.61,
+    'pressure': 1013.82,
+    'humidity': 99,
+    'minTemp': 17.61,
+    'maxTemp': 17.61,
+    'location': 'Szczecin',
+    'iconClass': 'wi wi-day-rain',
+    'description': 'moderate rain',
+    'data': new Date('2017-07-27T21:00:00.000Z'),
+    'wind': {
+      'deg': 245.501,
+      'speed': 3.66
+    }
+  },
+  {
+    'temp': 17.58,
+    'pressure': 1013.61,
+    'humidity': 98,
+    'minTemp': 17.58,
+    'maxTemp': 17.58,
+    'location': 'Szczecin',
+    'iconClass': 'wi wi-day-rain',
+    'description': 'light rain',
+    'data': new Date('2017-07-28T00:00:00.000Z'),
+    'wind': {
+      'deg': 231,
+      'speed': 4.22
+    }
+  },
+  {
+    'temp': 17.19,
+    'pressure': 1014.37,
+    'humidity': 100,
+    'minTemp': 17.19,
+    'maxTemp': 17.19,
+    'location': 'Szczecin',
+    'iconClass': 'wi wi-day-rain',
+    'description': 'light rain',
+    'data': new Date('2017-07-28T03:00:00.000Z'),
+    'wind': {
+      'deg': 276.006,
+      'speed': 5.52
+    }
+  },
+  {
+    'temp': 16.33,
+    'pressure': 1016.09,
+    'humidity': 98,
+    'minTemp': 16.33,
+    'maxTemp': 16.33,
+    'location': 'Szczecin',
+    'iconClass': 'wi wi-day-rain',
+    'description': 'light rain',
+    'data': new Date('2017-07-28T06:00:00.000Z'),
+    'wind': {
+      'deg': 282.012,
+      'speed': 6.01
+    }
+  },
+  {
+    'temp': 17.39,
+    'pressure': 1018.28,
+    'humidity': 94,
+    'minTemp': 17.39,
+    'maxTemp': 17.39,
+    'location': 'Szczecin',
+    'iconClass': 'wi wi-day-rain',
+    'description': 'light rain',
+    'data': new Date('2017-07-28T09:00:00.000Z'),
+    'wind': {
+      'deg': 287.5,
+      'speed': 6.52
+    }
+  },
+  {
+    'temp': 18.63,
+    'pressure': 1020.1,
+    'humidity': 90,
+    'minTemp': 18.63,
+    'maxTemp': 18.63,
+    'location': 'Szczecin',
+    'iconClass': 'wi wi-day-cloudy',
+    'description': 'few clouds',
+    'data': new Date('2017-07-28T12:00:00.000Z'),
+    'wind': {
+      'deg': 284.5,
+      'speed': 6.81
+    }
+  },
+  {
+    'temp': 18.69,
+    'pressure': 1021.67,
+    'humidity': 84,
+    'minTemp': 18.69,
+    'maxTemp': 18.69,
+    'location': 'Szczecin',
+    'iconClass': 'wi wi-day-cloudy',
+    'description': 'scattered clouds',
+    'data': new Date('2017-07-28T15:00:00.000Z'),
+    'wind': {
+      'deg': 289,
+      'speed': 6.52
+    }
+  },
+  {
+    'temp': 17.28,
+    'pressure': 1023.22,
+    'humidity': 85,
+    'minTemp': 17.28,
+    'maxTemp': 17.28,
+    'location': 'Szczecin',
+    'iconClass': 'wi wi-day-rain',
+    'description': 'light rain',
+    'data': new Date('2017-07-28T18:00:00.000Z'),
+    'wind': {
+      'deg': 281.501,
+      'speed': 4.91
+    }
+  },
+  {
+    'temp': 15.42,
+    'pressure': 1024.63,
+    'humidity': 86,
+    'minTemp': 15.42,
+    'maxTemp': 15.42,
+    'location': 'Szczecin',
+    'iconClass': 'wi wi-day-cloudy',
+    'description': 'few clouds',
+    'data': new Date('2017-07-28T21:00:00.000Z'),
+    'wind': {
+      'deg': 277.502,
+      'speed': 4.46
+    }
+  }
+];

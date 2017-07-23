@@ -33,7 +33,7 @@ Then include in your apps module:
 
 ```typescript
 import { Component, NgModule } from '@angular/core';
-import { AngularWeatherWidgetModule } from 'angular-weather';
+import { AngularWeatherWidgetModule, WeatherApiName } from 'angular-weather-widget';
 
 @NgModule({
   imports: [

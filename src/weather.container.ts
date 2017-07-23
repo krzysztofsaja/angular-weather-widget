@@ -6,24 +6,20 @@ import {
   HostBinding,
   HostListener,
   Input,
-  OnChanges,
   OnDestroy,
-  Renderer2,
-  SimpleChanges
+  Renderer2
 } from '@angular/core';
-import { TemperatureScale } from './components/weather-current-temperature/current-temperature.component';
+import { Observable } from 'rxjs/Observable';
+import { Subscription } from 'rxjs/Subscription';
 import {
   CurrentWeather,
   Forecast,
-  WeatherApiService,
-  WeatherQueryParams
+  WeatherApiService
 } from './services/api/weather.api.service';
-import { Subscription } from 'rxjs/Subscription';
-import { Observable } from 'rxjs/Observable';
-import { ForecastMode } from './components/weather-forecast/weather-forecast.component';
+import { WeatherQueryParams, WeatherSettings } from './weather.interfaces';
 
 @Component({
-  selector: 'weather-container',
+  selector: 'weather-widget',
   changeDetection: ChangeDetectionStrategy.Default,
   styles: [
     `
@@ -205,18 +201,4 @@ class WeatherContainer implements OnDestroy {
     );
     return this.weatherApi.forecast(params);
   }
-}
-
-export class WeatherSettings {
-  location: WeatherQueryParams = { cityName: 'Szczecin' };
-  scale: TemperatureScale = TemperatureScale.CELCIUS;
-  backgroundColor? = 'white';
-  color? = 'black';
-  width?: any;
-  height?: any;
-  showWind?: boolean;
-  showDetails?: boolean;
-  showForecast?: boolean;
-  language?: string;
-  forecastMode?: ForecastMode;
 }

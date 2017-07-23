@@ -26,6 +26,35 @@ import { ChartComponent } from './components/chart/chart.component';
 import { WeatherForecastChartWideComponent } from './components/weather-forecast/forecast-simple-grid/forecast-chart-wide.component';
 import { WeatherHelpersService } from './services/weather-helpers.service';
 
+export function apiServiceFactory(
+  http: Http,
+  pooling: PoolingService,
+  openWeather: WeatherApiConfig
+) {
+  switch (openWeather.name) {
+    case WeatherApiName.OPEN_WEATHER_MAP:
+      return new OpenWeatherMapApiService(http, pooling, openWeather);
+    default:
+      return new OpenWeatherMapApiService(http, pooling, openWeather);
+  }
+}
+
+export function forRoot(config: WeatherApiConfig): ModuleWithProviders {
+  return {
+    ngModule: AngularWeatherWidgetModule,
+    providers: [
+      PoolingService,
+      WeatherHelpersService,
+      {
+        provide: WeatherApiService,
+        useFactory: apiServiceFactory,
+        deps: [Http, PoolingService, 'WEATHER_CONFIG']
+      },
+      { provide: 'WEATHER_CONFIG', useValue: config }
+    ]
+  };
+}
+
 @NgModule({
   imports: [CommonModule, HttpModule],
   declarations: [
@@ -49,32 +78,6 @@ import { WeatherHelpersService } from './services/weather-helpers.service';
 })
 export class AngularWeatherWidgetModule {
   constructor() {}
-
-  static forRoot(config: WeatherApiConfig): ModuleWithProviders {
-    return {
-      ngModule: AngularWeatherWidgetModule,
-      providers: [
-        PoolingService,
-        WeatherHelpersService,
-        {
-          provide: WeatherApiService,
-          useFactory: apiServiceFactory,
-          deps: [Http, PoolingService, 'WEATHER_CONFIG']
-        },
-        { provide: 'WEATHER_CONFIG', useValue: config }
-      ]
-    };
-  }
+  static forRoot = forRoot;
 }
-export function apiServiceFactory(
-  http: Http,
-  pooling: PoolingService,
-  openWeather: WeatherApiConfig
-) {
-  switch (openWeather.name) {
-    case WeatherApiName.OPEN_WEATHER_MAP:
-      return new OpenWeatherMapApiService(http, pooling, openWeather);
-    default:
-      return new OpenWeatherMapApiService(http, pooling, openWeather);
-  }
-}
+export * from './weather.interfaces';

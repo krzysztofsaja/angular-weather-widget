@@ -7,6 +7,7 @@ import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/first';
 import { TemperatureScale } from '../../components/weather-current-temperature/current-temperature.component';
+import { WeatherQueryParams } from '../../weather.interfaces';
 
 @Injectable()
 export abstract class WeatherApiService {
@@ -90,18 +91,6 @@ export abstract class WeatherApiService {
     }
     return queryParams;
   }
-}
-
-export interface WeatherQueryParams {
-  cityId?: number;
-  cityName?: string;
-  latLng?: {
-    lat: number;
-    lng: number;
-  };
-  zipCode?: number;
-  units?: TemperatureScale;
-  lang?: string;
 }
 
 export interface CurrentWeather {

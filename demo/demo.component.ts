@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { WeatherSettings } from '../src/weather.container';
 import { TemperatureScale } from '../src/components/weather-current-temperature/current-temperature.component';
-import { ForecastMode } from '../src/components/weather-forecast/weather-forecast.component';
+import { ForecastMode, WeatherSettings } from '../src/weather.interfaces';
 
 @Component({
   selector: 'weather-demo-app',
@@ -56,7 +55,7 @@ import { ForecastMode } from '../src/components/weather-forecast/weather-forecas
       </div>
       <button (click)="onUpdate()">Update</button>
     </div>
-    <weather-container [settings]="settings"></weather-container>`
+    <weather-widget [settings]="settings"></weather-widget>`
 })
 export class DemoComponent {
   settings: WeatherSettings = {

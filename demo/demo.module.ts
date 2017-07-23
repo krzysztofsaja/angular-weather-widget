@@ -5,7 +5,7 @@ import { DemoComponent } from './demo.component';
 import { WeatherApiName } from '../src/services/api/weather.api.service';
 import { FormsModule } from '@angular/forms';
 
-declare var OPEN_WEATHER_MAP_API_KEY;
+declare var OPEN_WEATHER_MAP_API_KEY: string;
 @NgModule({
   declarations: [DemoComponent],
   imports: [

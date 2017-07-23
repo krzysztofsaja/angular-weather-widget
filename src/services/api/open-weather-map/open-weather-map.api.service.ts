@@ -9,12 +9,12 @@ import {
   WeatherApiConfig,
   WeatherApiService
 } from '../weather.api.service';
-import { iconCodes } from './open-weather-map-to-weather-icons';
+import { iconCodes, IconCodeType } from './open-weather-map-to-weather-icons';
 import { WeatherQueryParams } from '../../../weather.interfaces';
 
 @Injectable()
 export class OpenWeatherMapApiService extends WeatherApiService {
-  iconCodes;
+  iconCodes: IconCodeType;
   iconCodes$: Observable<any>;
   constructor(
     protected http: Http,
@@ -31,10 +31,10 @@ export class OpenWeatherMapApiService extends WeatherApiService {
     const mapped: OpenWeatherMapLocationRequest = {
       id: params.cityId,
       q: params.cityName,
-      lat: params.latLng.lat,
-      lon: params.latLng.lng,
+      lat: params.latLng ? params.latLng.lat : undefined,
+      lon: params.latLng ? params.latLng.lng : undefined,
       zip: params.zipCode,
-      units: this.mapUnits(params.units),
+      units: params.units ? this.mapUnits(params.units) : undefined,
       lang: params.lang
     };
     return mapped;
@@ -44,16 +44,22 @@ export class OpenWeatherMapApiService extends WeatherApiService {
     response: OpenWeatherMapCurrentWeatherResponse
   ): CurrentWeather {
     if (!response) {
-      return;
+      return <CurrentWeather>{};
     }
     const weather: CurrentWeather = {
       temp: response.main.temp,
-      pressure: response.main.pressure,
-      humidity: response.main.humidity,
-      minTemp: response.main.temp_min,
-      maxTemp: response.main.temp_max,
-      sunrise: response.sys.sunrise,
-      sunset: response.sys.sunset,
+      pressure: response.main ? response.main.pressure : undefined,
+      humidity: response.main ? response.main.humidity : undefined,
+      minTemp:
+        response.main && response.main.temp
+          ? response.main.temp_min
+          : undefined,
+      maxTemp:
+        response.main && response.main.temp
+          ? response.main.temp_max
+          : undefined,
+      sunrise: response.sys ? response.sys.sunrise : undefined,
+      sunset: response.sys ? response.sys.sunset : undefined,
       location: response.name,
       iconUrl: this.mapResponseToIconUrl(response),
       iconClass: this.mapResponseToIconClass(response),
@@ -70,7 +76,7 @@ export class OpenWeatherMapApiService extends WeatherApiService {
     response: OpenWeatherMapForecastResponse
   ): Forecast[] {
     if (!response) {
-      return;
+      return <Forecast[]>[];
     }
     const city = response.city;
     return response.list.map((el: OpenWeatherMapForecastResponseElement) => {

@@ -107,7 +107,7 @@ class WeatherContainer implements OnDestroy {
   @HostBinding('style.width') width = 'auto';
   @HostBinding('style.height') height = 'auto';
 
-  @Input() forecast: Forecast | null;
+  @Input() forecast: Forecast[] | null;
   @Input() currentWeather: CurrentWeather | null;
   @Input()
   set settings(value: WeatherSettings) {
@@ -131,7 +131,7 @@ class WeatherContainer implements OnDestroy {
   subscriptionCurrentWeather: Subscription;
   subscriptionForecast: Subscription;
   currentWeather$: Observable<CurrentWeather>;
-  forecast$: Observable<Forecast>;
+  forecast$: Observable<Forecast[]>;
   isMouseOn: boolean;
 
   private _settings: WeatherSettings;
@@ -192,7 +192,7 @@ class WeatherContainer implements OnDestroy {
     return this.weatherApi.currentWeather(params);
   }
 
-  forecastCall(): Observable<Forecast> {
+  forecastCall(): Observable<Forecast[]> {
     const params: WeatherQueryParams = Object.assign(
       {},
       this.settings.location,

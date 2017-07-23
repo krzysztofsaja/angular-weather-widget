@@ -24,7 +24,7 @@ export class WeatherHelpersService {
   // Fixme: This function generates wrong icon for average day weather.
   // Weather icon is taken from first day measurement
   reduceToAveragePerDay(list: Forecast[]) {
-    return list.reduce((prev, curr) => {
+    return list.reduce((prev: Forecast[], curr) => {
       if (curr && !curr.data) {
         prev.push(curr);
         return prev;
@@ -39,12 +39,20 @@ export class WeatherHelpersService {
       if (currDay === prevDay) {
         const result: Forecast = lastElement();
         result.temp = (result.temp + curr.temp) / 2;
-        result.wind = {
-          speed: (result.wind.speed + curr.wind.speed) / 2,
-          deg: (result.wind.deg + curr.wind.deg) / 2
-        };
-        result.humidity = (result.humidity + curr.humidity) / 2;
-        result.pressure = (result.pressure + curr.pressure) / 2;
+        if (result.wind && curr.wind) {
+          result.wind = {
+            speed: (result.wind.speed + curr.wind.speed) / 2,
+            deg: (result.wind.deg + curr.wind.deg) / 2
+          };
+        }
+
+        if (result.humidity && curr.humidity) {
+          result.humidity = (result.humidity + curr.humidity) / 2;
+        }
+        if (result.pressure && curr.pressure) {
+          result.pressure = (result.pressure + curr.pressure) / 2;
+        }
+
         prev[prev.length - 1] = result;
         return prev;
       } else {
@@ -56,12 +64,18 @@ export class WeatherHelpersService {
 
   mapForecastToCharts(forecast: Forecast[], borderColor = '#aaa'): ChartData {
     return forecast.reduce(
-      (prev, curr: Forecast) => {
-        prev.labels.push(curr.data);
-        prev.datasets[0].data.push(curr.temp);
+      (prev: ChartData, curr: Forecast) => {
+        if (prev.labels) {
+          prev.labels.push(curr.data.toISOString());
+        }
+        if (prev.datasets && prev.datasets[0] && prev.datasets[0].data) {
+          const data: number[] = <number[]>prev.datasets[0].data;
+          data.push(curr.temp);
+        }
+
         return prev;
       },
-      {
+      <ChartData>{
         labels: [],
         datasets: [
           {

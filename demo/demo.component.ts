@@ -60,7 +60,6 @@ import { ForecastMode, WeatherSettings } from '../src/weather.interfaces';
 export class DemoComponent {
   settings: WeatherSettings = {
     location: {
-      latLng: { lat: 52, lng: 14 },
       cityName: 'Szczecin'
     },
     scale: TemperatureScale.CELCIUS,

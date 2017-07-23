@@ -6,6 +6,7 @@ import {
   EventEmitter
 } from '@angular/core';
 import { TemperatureScale } from '../weather-current-temperature/current-temperature.component';
+import { WeatherSettings } from '../../weather.interfaces';
 
 @Component({
   selector: 'weather-current-wind',
@@ -55,15 +56,17 @@ export class WeatherCurrentWindComponent {
   }
   private _deg: number;
   @Input() speed: number;
-  private _scale;
+  private _scale: TemperatureScale;
 
-  mapScaleToText(scale: TemperatureScale) {
+  mapScaleToText(scale: TemperatureScale): string {
     switch (scale) {
       case TemperatureScale.CELCIUS:
       case TemperatureScale.KELVIN:
         return 'm/s';
       case TemperatureScale.FAHRENHEIT:
         return 'mil/h';
+      default:
+        return '';
     }
   }
 }

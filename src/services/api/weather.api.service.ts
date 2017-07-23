@@ -24,7 +24,7 @@ export abstract class WeatherApiService {
     );
   }
 
-  forecast(queryParams: WeatherQueryParams): Observable<Forecast> {
+  forecast(queryParams: WeatherQueryParams): Observable<Forecast[]> {
     return this.callApi(queryParams, '/forecast').map(
       this.mapForecastResponse.bind(this)
     );
@@ -36,7 +36,7 @@ export abstract class WeatherApiService {
   ): Observable<any> {
     const params = this.mapQueryParams(queryParams);
     const requestOptions = this.getRequestOptions(params);
-    const apiCall = this.http
+    const apiCall: Observable<any> = this.http
       .get(`${this.apiConfig.baseUrl}/${endpoint}`, requestOptions)
       .map(resp => resp.json())
       .filter(el => !!el);
@@ -45,7 +45,7 @@ export abstract class WeatherApiService {
 
   protected setTokenKey(): string {
     // Implement it in child service
-    return;
+    return '';
   }
 
   protected mapQueryParams(params: WeatherQueryParams): any {
@@ -55,22 +55,22 @@ export abstract class WeatherApiService {
 
   protected mapCurrentWeatherResponse(response: any): CurrentWeather {
     // Implement it in child service
-    return;
+    return <CurrentWeather>{};
   }
 
   protected mapForecastResponse(response: any): Forecast[] {
     // Implement it in child service
-    return;
+    return <Forecast[]>[];
   }
 
   protected mapResponseToIconUrl(response: any): string {
-    return;
+    return '';
   }
   protected mapResponseToIconClass(response: any): string {
-    return;
+    return '';
   }
 
-  private wrapWithPoll(apiCall) {
+  private wrapWithPoll(apiCall: Observable<any>) {
     return this.poolingService.execute(() => apiCall, this.poollingInterval);
   }
 
@@ -81,7 +81,7 @@ export abstract class WeatherApiService {
     });
   }
 
-  private getQueryParams(obj): URLSearchParams {
+  private getQueryParams(obj: { [key: string]: any }): URLSearchParams {
     const queryParams = new URLSearchParams();
     queryParams.set(this.setTokenKey(), this.apiConfig.key);
     for (const key in obj) {
@@ -96,16 +96,16 @@ export abstract class WeatherApiService {
 export interface CurrentWeather {
   location: string;
   temp: number;
-  pressure: number;
-  humidity: number;
-  minTemp: number;
-  maxTemp: number;
+  pressure?: number;
+  humidity?: number;
+  minTemp?: number;
+  maxTemp?: number;
   sunrise?: number;
   sunset?: number;
   iconClass?: string;
   iconUrl?: string;
   description?: string;
-  wind: {
+  wind?: {
     deg: number;
     speed: number;
   };

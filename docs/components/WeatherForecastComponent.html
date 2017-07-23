@@ -562,7 +562,7 @@
                     </tr>
                             <tr>
                                 <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/components/weather-forecast/weather-forecast.component.ts:55</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/components/weather-forecast/weather-forecast.component.ts:49</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -578,7 +578,7 @@
                     </tr>
                             <tr>
                                 <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/components/weather-forecast/weather-forecast.component.ts:38</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/components/weather-forecast/weather-forecast.component.ts:32</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -598,7 +598,7 @@
                     </tr>
                             <tr>
                                 <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/components/weather-forecast/weather-forecast.component.ts:53</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/components/weather-forecast/weather-forecast.component.ts:47</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -634,7 +634,7 @@
                         </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">src/components/weather-forecast/weather-forecast.component.ts:62</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/components/weather-forecast/weather-forecast.component.ts:56</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -659,7 +659,7 @@
                         </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/components/weather-forecast/weather-forecast.component.ts:36</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/components/weather-forecast/weather-forecast.component.ts:30</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -669,16 +669,10 @@
 
 
     <div class="tab-pane fade tab-source-code" id="source">
-        <pre class="line-numbers"><code class="language-typescript">import {
-  Component,
-  ChangeDetectionStrategy,
-  Input,
-  Output,
-  EventEmitter
-} from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers"><code class="language-typescript">import { ChangeDetectionStrategy, Component, Input } from &#x27;@angular/core&#x27;;
 import { Forecast } from &#x27;../../services/api/weather.api.service&#x27;;
+import { ForecastMode, WeatherSettings } from &#x27;../../weather.interfaces&#x27;;
 import preventExtensions &#x3D; Reflect.preventExtensions;
-import { WeatherSettings } from &#x27;../../weather.container&#x27;;
 
 @Component({
   selector: &#x27;weather-forecast&#x27;,
@@ -735,11 +729,6 @@ export class WeatherForecastComponent {
   }
   private _forecast: Forecast[];
 }
-
-export enum ForecastMode {
-  GRID &#x3D; &lt;any&gt;&#x27;GRID&#x27;,
-  DETAILED &#x3D; &lt;any&gt;&#x27;DETAILED&#x27;
-}
 </code></pre>
     </div>
 
@@ -768,7 +757,7 @@ export enum ForecastMode {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><weather-forecast-simple-grid  *ngIf="isGridForecast"  [forecast]="forecast"></weather-forecast-simple-grid><weather-forecast-detailed  *ngIf="!isGridForecast"  [settings]="settings"  [forecast]="forecast"></weather-forecast-detailed></div>'
-    var COMPONENTS = [{'name': 'ChartComponent', 'selector': 'weather-chart'},{'name': 'WeatherActionsComponent', 'selector': 'weather-actions'},{'name': 'WeatherContainer', 'selector': 'weather-container'},{'name': 'WeatherCurrentDescriptionComponent', 'selector': 'weather-current-description'},{'name': 'WeatherCurrentDetailsComponent', 'selector': 'weather-current-details'},{'name': 'WeatherCurrentTempComponent', 'selector': 'weather-current-temperature'},{'name': 'WeatherCurrentWindComponent', 'selector': 'weather-current-wind'},{'name': 'WeatherForecastChartWideComponent', 'selector': 'weather-forecast-chart-wide'},{'name': 'WeatherForecastComponent', 'selector': 'weather-forecast'},{'name': 'WeatherForecastDetailDayComponent', 'selector': 'weather-forecast-detail-day'},{'name': 'WeatherForecastDetailedComponent', 'selector': 'weather-forecast-detailed'},{'name': 'WeatherForecastGridDayComponent', 'selector': 'weather-forecast-grid-day'},{'name': 'WeatherForecastSimpleGridComponent', 'selector': 'weather-forecast-simple-grid'},{'name': 'WeatherIconComponent', 'selector': 'weather-icon'},{'name': 'WeatherLocationComponent', 'selector': 'weather-location'}];
+    var COMPONENTS = [{'name': 'ChartComponent', 'selector': 'weather-chart'},{'name': 'WeatherActionsComponent', 'selector': 'weather-actions'},{'name': 'WeatherContainer', 'selector': 'weather-widget'},{'name': 'WeatherCurrentDescriptionComponent', 'selector': 'weather-current-description'},{'name': 'WeatherCurrentDetailsComponent', 'selector': 'weather-current-details'},{'name': 'WeatherCurrentTempComponent', 'selector': 'weather-current-temperature'},{'name': 'WeatherCurrentWindComponent', 'selector': 'weather-current-wind'},{'name': 'WeatherForecastChartWideComponent', 'selector': 'weather-forecast-chart-wide'},{'name': 'WeatherForecastComponent', 'selector': 'weather-forecast'},{'name': 'WeatherForecastDetailDayComponent', 'selector': 'weather-forecast-detail-day'},{'name': 'WeatherForecastDetailedComponent', 'selector': 'weather-forecast-detailed'},{'name': 'WeatherForecastGridDayComponent', 'selector': 'weather-forecast-grid-day'},{'name': 'WeatherForecastSimpleGridComponent', 'selector': 'weather-forecast-simple-grid'},{'name': 'WeatherIconComponent', 'selector': 'weather-icon'},{'name': 'WeatherLocationComponent', 'selector': 'weather-location'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'WeatherForecastComponent'};
 </script>

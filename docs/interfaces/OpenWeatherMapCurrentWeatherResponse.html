@@ -852,17 +852,17 @@
     <div class="tab-pane fade tab-source-code" id="source">
         <pre class="line-numbers"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
 import { Http } from &#x27;@angular/http&#x27;;
+import { Observable } from &#x27;rxjs/Observable&#x27;;
+import { TemperatureScale } from &#x27;../../../components/weather-current-temperature/current-temperature.component&#x27;;
 import { PoolingService } from &#x27;../../poling.service&#x27;;
 import {
   CurrentWeather,
   Forecast,
   WeatherApiConfig,
-  WeatherApiService,
-  WeatherQueryParams
+  WeatherApiService
 } from &#x27;../weather.api.service&#x27;;
-import { Observable } from &#x27;rxjs/Observable&#x27;;
 import { iconCodes } from &#x27;./open-weather-map-to-weather-icons&#x27;;
-import { TemperatureScale } from &#x27;../../../components/weather-current-temperature/current-temperature.component&#x27;;
+import { WeatherQueryParams } from &#x27;../../../weather.interfaces&#x27;;
 
 @Injectable()
 export class OpenWeatherMapApiService extends WeatherApiService {

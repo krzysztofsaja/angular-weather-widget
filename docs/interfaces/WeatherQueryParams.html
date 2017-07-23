@@ -489,7 +489,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/services/api/weather.api.service.ts</code>
+            <code>src/weather.interfaces.ts</code>
         </p>
 
 
@@ -523,7 +523,7 @@
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="96" class="link-to-prism">src/services/api/weather.api.service.ts:96</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/weather.interfaces.ts:27</a></div>
                                         </td>
                                     </tr>
 
@@ -555,7 +555,7 @@
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="97" class="link-to-prism">src/services/api/weather.api.service.ts:97</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/weather.interfaces.ts:28</a></div>
                                         </td>
                                     </tr>
 
@@ -587,7 +587,7 @@
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="104" class="link-to-prism">src/services/api/weather.api.service.ts:104</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/weather.interfaces.ts:35</a></div>
                                         </td>
                                     </tr>
 
@@ -613,7 +613,7 @@
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="98" class="link-to-prism">src/services/api/weather.api.service.ts:98</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/weather.interfaces.ts:29</a></div>
                                         </td>
                                     </tr>
 
@@ -645,7 +645,7 @@
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="103" class="link-to-prism">src/services/api/weather.api.service.ts:103</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/weather.interfaces.ts:34</a></div>
                                         </td>
                                     </tr>
 
@@ -677,7 +677,7 @@
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="102" class="link-to-prism">src/services/api/weather.api.service.ts:102</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/weather.interfaces.ts:33</a></div>
                                         </td>
                                     </tr>
 
@@ -688,98 +688,29 @@
 
 
     <div class="tab-pane fade tab-source-code" id="source">
-        <pre class="line-numbers"><code class="language-typescript">import { Inject, Injectable } from &#x27;@angular/core&#x27;;
-import { Headers, Http, RequestOptions, URLSearchParams } from &#x27;@angular/http&#x27;;
-import { Observable } from &#x27;rxjs/Observable&#x27;;
-import { PoolingService } from &#x27;../poling.service&#x27;;
-import &#x27;rxjs/add/operator/map&#x27;;
-import &#x27;rxjs/add/operator/filter&#x27;;
-import &#x27;rxjs/add/operator/catch&#x27;;
-import &#x27;rxjs/add/operator/first&#x27;;
-import { TemperatureScale } from &#x27;../../components/weather-current-temperature/current-temperature.component&#x27;;
+        <pre class="line-numbers"><code class="language-typescript">export class WeatherSettings {
+  location: WeatherQueryParams &#x3D; { cityName: &#x27;Szczecin&#x27; };
+  scale: TemperatureScale &#x3D; TemperatureScale.CELCIUS;
+  backgroundColor? &#x3D; &#x27;white&#x27;;
+  color? &#x3D; &#x27;black&#x27;;
+  width?: any;
+  height?: any;
+  showWind?: boolean;
+  showDetails?: boolean;
+  showForecast?: boolean;
+  language?: string;
+  forecastMode?: ForecastMode;
+}
 
-@Injectable()
-export abstract class WeatherApiService {
-  poollingInterval &#x3D; 60000 * 60;
-  constructor(
-    protected http: Http,
-    protected poolingService: PoolingService,
-    @Inject(&#x27;WEATHER_CONFIG&#x27;) public apiConfig: WeatherApiConfig
-  ) {}
+export enum ForecastMode {
+  GRID &#x3D; &lt;any&gt;&#x27;GRID&#x27;,
+  DETAILED &#x3D; &lt;any&gt;&#x27;DETAILED&#x27;
+}
 
-  currentWeather(queryParams: WeatherQueryParams): Observable&lt;CurrentWeather&gt; {
-    return this.callApi(queryParams, &#x27;/weather&#x27;).map(
-      this.mapCurrentWeatherResponse.bind(this)
-    );
-  }
-
-  forecast(queryParams: WeatherQueryParams): Observable&lt;Forecast&gt; {
-    return this.callApi(queryParams, &#x27;/forecast&#x27;).map(
-      this.mapForecastResponse.bind(this)
-    );
-  }
-
-  protected callApi(
-    queryParams: WeatherQueryParams,
-    endpoint: string
-  ): Observable&lt;any&gt; {
-    const params &#x3D; this.mapQueryParams(queryParams);
-    const requestOptions &#x3D; this.getRequestOptions(params);
-    const apiCall &#x3D; this.http
-      .get(&#x60;${this.apiConfig.baseUrl}/${endpoint}&#x60;, requestOptions)
-      .map(resp &#x3D;&gt; resp.json())
-      .filter(el &#x3D;&gt; !!el);
-    return this.wrapWithPoll(apiCall);
-  }
-
-  protected setTokenKey(): string {
-    // Implement it in child service
-    return;
-  }
-
-  protected mapQueryParams(params: WeatherQueryParams): any {
-    // Implement it in child service
-    return;
-  }
-
-  protected mapCurrentWeatherResponse(response: any): CurrentWeather {
-    // Implement it in child service
-    return;
-  }
-
-  protected mapForecastResponse(response: any): Forecast[] {
-    // Implement it in child service
-    return;
-  }
-
-  protected mapResponseToIconUrl(response: any): string {
-    return;
-  }
-  protected mapResponseToIconClass(response: any): string {
-    return;
-  }
-
-  private wrapWithPoll(apiCall) {
-    return this.poolingService.execute(() &#x3D;&gt; apiCall, this.poollingInterval);
-  }
-
-  private getRequestOptions(queryParams: Object) {
-    return new RequestOptions({
-      headers: new Headers(),
-      params: this.getQueryParams(queryParams)
-    });
-  }
-
-  private getQueryParams(obj): URLSearchParams {
-    const queryParams &#x3D; new URLSearchParams();
-    queryParams.set(this.setTokenKey(), this.apiConfig.key);
-    for (const key in obj) {
-      if (obj.hasOwnProperty(key)) {
-        queryParams.set(key.toString(), obj[key]);
-      }
-    }
-    return queryParams;
-  }
+export enum TemperatureScale {
+  CELCIUS &#x3D; &lt;any&gt;&#x27;celcius&#x27;,
+  KELVIN &#x3D; &lt;any&gt;&#x27;kelvin&#x27;,
+  FAHRENHEIT &#x3D; &lt;any&gt;&#x27;fahrenheit&#x27;
 }
 
 export interface WeatherQueryParams {
@@ -792,38 +723,6 @@ export interface WeatherQueryParams {
   zipCode?: number;
   units?: TemperatureScale;
   lang?: string;
-}
-
-export interface CurrentWeather {
-  location: string;
-  temp: number;
-  pressure: number;
-  humidity: number;
-  minTemp: number;
-  maxTemp: number;
-  sunrise?: number;
-  sunset?: number;
-  iconClass?: string;
-  iconUrl?: string;
-  description?: string;
-  wind: {
-    deg: number;
-    speed: number;
-  };
-}
-
-export interface Forecast extends CurrentWeather {
-  data: Date;
-}
-
-export class WeatherApiConfig {
-  name: WeatherApiName &#x3D; WeatherApiName.OPEN_WEATHER_MAP;
-  key &#x3D; &#x27;provide secret key&#x27;;
-  baseUrl &#x3D; &#x27;http://api.openweathermap.org/data/2.5&#x27;;
-}
-
-export enum WeatherApiName {
-  OPEN_WEATHER_MAP &#x3D; &lt;any&gt;&#x27;Open Weather Map&#x27;
 }
 </code></pre>
     </div>

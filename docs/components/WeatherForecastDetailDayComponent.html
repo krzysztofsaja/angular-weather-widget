@@ -587,7 +587,7 @@
                     </tr>
                             <tr>
                                 <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">src/components/weather-forecast/forecast-detailed/forecast-detailed-day.component.ts:62</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">src/components/weather-forecast/forecast-detailed/forecast-detailed-day.component.ts:61</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -607,7 +607,7 @@
                     </tr>
                             <tr>
                                 <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">src/components/weather-forecast/forecast-detailed/forecast-detailed-day.component.ts:59</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">src/components/weather-forecast/forecast-detailed/forecast-detailed-day.component.ts:58</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -626,7 +626,7 @@
                     </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">src/components/weather-forecast/forecast-detailed/forecast-detailed-day.component.ts:68</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">src/components/weather-forecast/forecast-detailed/forecast-detailed-day.component.ts:67</a></div>
                                 </td>
                             </tr>
     
@@ -661,7 +661,7 @@
                         </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">src/components/weather-forecast/forecast-detailed/forecast-detailed-day.component.ts:57</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/components/weather-forecast/forecast-detailed/forecast-detailed-day.component.ts:56</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -687,7 +687,7 @@
                         </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">src/components/weather-forecast/forecast-detailed/forecast-detailed-day.component.ts:58</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">src/components/weather-forecast/forecast-detailed/forecast-detailed-day.component.ts:57</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -713,7 +713,7 @@
                         </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">src/components/weather-forecast/forecast-detailed/forecast-detailed-day.component.ts:65</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">src/components/weather-forecast/forecast-detailed/forecast-detailed-day.component.ts:64</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -724,17 +724,16 @@
 
     <div class="tab-pane fade tab-source-code" id="source">
         <pre class="line-numbers"><code class="language-typescript">import {
-  Component,
   ChangeDetectionStrategy,
+  Component,
   Input,
   OnChanges,
-  SimpleChange,
   SimpleChanges
 } from &#x27;@angular/core&#x27;;
+import { ChartData, ChartOptions } from &#x27;chart.js&#x27;;
 import { Forecast } from &#x27;../../../services/api/weather.api.service&#x27;;
-import { Chart, ChartData, ChartOptions } from &#x27;chart.js&#x27;;
-import { WeatherSettings } from &#x27;../../../weather.container&#x27;;
 import { WeatherHelpersService } from &#x27;../../../services/weather-helpers.service&#x27;;
+import { WeatherSettings } from &#x27;../../../weather.interfaces&#x27;;
 
 @Component({
   selector: &#x27;weather-forecast-detail-day&#x27;,
@@ -891,7 +890,7 @@ export class WeatherForecastDetailDayComponent implements OnChanges {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><div class="left">  {{forecast[0]?.data | date:\'EEE\' }}  <weather-icon [iconClass]="forecast[0]?.iconClass"></weather-icon></div><weather-chart  [type]="\'line\'"  [data]="chartData"  [options]="chartOptions"></weather-chart></div>'
-    var COMPONENTS = [{'name': 'ChartComponent', 'selector': 'weather-chart'},{'name': 'WeatherActionsComponent', 'selector': 'weather-actions'},{'name': 'WeatherContainer', 'selector': 'weather-container'},{'name': 'WeatherCurrentDescriptionComponent', 'selector': 'weather-current-description'},{'name': 'WeatherCurrentDetailsComponent', 'selector': 'weather-current-details'},{'name': 'WeatherCurrentTempComponent', 'selector': 'weather-current-temperature'},{'name': 'WeatherCurrentWindComponent', 'selector': 'weather-current-wind'},{'name': 'WeatherForecastChartWideComponent', 'selector': 'weather-forecast-chart-wide'},{'name': 'WeatherForecastComponent', 'selector': 'weather-forecast'},{'name': 'WeatherForecastDetailDayComponent', 'selector': 'weather-forecast-detail-day'},{'name': 'WeatherForecastDetailedComponent', 'selector': 'weather-forecast-detailed'},{'name': 'WeatherForecastGridDayComponent', 'selector': 'weather-forecast-grid-day'},{'name': 'WeatherForecastSimpleGridComponent', 'selector': 'weather-forecast-simple-grid'},{'name': 'WeatherIconComponent', 'selector': 'weather-icon'},{'name': 'WeatherLocationComponent', 'selector': 'weather-location'}];
+    var COMPONENTS = [{'name': 'ChartComponent', 'selector': 'weather-chart'},{'name': 'WeatherActionsComponent', 'selector': 'weather-actions'},{'name': 'WeatherContainer', 'selector': 'weather-widget'},{'name': 'WeatherCurrentDescriptionComponent', 'selector': 'weather-current-description'},{'name': 'WeatherCurrentDetailsComponent', 'selector': 'weather-current-details'},{'name': 'WeatherCurrentTempComponent', 'selector': 'weather-current-temperature'},{'name': 'WeatherCurrentWindComponent', 'selector': 'weather-current-wind'},{'name': 'WeatherForecastChartWideComponent', 'selector': 'weather-forecast-chart-wide'},{'name': 'WeatherForecastComponent', 'selector': 'weather-forecast'},{'name': 'WeatherForecastDetailDayComponent', 'selector': 'weather-forecast-detail-day'},{'name': 'WeatherForecastDetailedComponent', 'selector': 'weather-forecast-detailed'},{'name': 'WeatherForecastGridDayComponent', 'selector': 'weather-forecast-grid-day'},{'name': 'WeatherForecastSimpleGridComponent', 'selector': 'weather-forecast-simple-grid'},{'name': 'WeatherIconComponent', 'selector': 'weather-icon'},{'name': 'WeatherLocationComponent', 'selector': 'weather-location'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'WeatherForecastDetailDayComponent'};
 </script>

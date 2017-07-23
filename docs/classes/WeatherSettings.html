@@ -488,7 +488,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/weather.container.ts</code>
+            <code>src/weather.interfaces.ts</code>
         </p>
 
 
@@ -522,7 +522,7 @@
                                 </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="213" class="link-to-prism">src/weather.container.ts:213</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="4" class="link-to-prism">src/weather.interfaces.ts:4</a></div>
                                         </td>
                                     </tr>
                         </tbody>
@@ -547,7 +547,7 @@
                                 </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="214" class="link-to-prism">src/weather.container.ts:214</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="5" class="link-to-prism">src/weather.interfaces.ts:5</a></div>
                                         </td>
                                     </tr>
                         </tbody>
@@ -573,7 +573,7 @@
                                 </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="221" class="link-to-prism">src/weather.container.ts:221</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/weather.interfaces.ts:12</a></div>
                                         </td>
                                     </tr>
                         </tbody>
@@ -599,7 +599,7 @@
                                 </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="216" class="link-to-prism">src/weather.container.ts:216</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">src/weather.interfaces.ts:7</a></div>
                                         </td>
                                     </tr>
                         </tbody>
@@ -625,7 +625,7 @@
                                 </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="220" class="link-to-prism">src/weather.container.ts:220</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/weather.interfaces.ts:11</a></div>
                                         </td>
                                     </tr>
                         </tbody>
@@ -651,7 +651,7 @@
                                 </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="211" class="link-to-prism">src/weather.container.ts:211</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="2" class="link-to-prism">src/weather.interfaces.ts:2</a></div>
                                         </td>
                                     </tr>
                         </tbody>
@@ -677,7 +677,7 @@
                                 </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="212" class="link-to-prism">src/weather.container.ts:212</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="3" class="link-to-prism">src/weather.interfaces.ts:3</a></div>
                                         </td>
                                     </tr>
                         </tbody>
@@ -703,7 +703,7 @@
                                 </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="218" class="link-to-prism">src/weather.container.ts:218</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/weather.interfaces.ts:9</a></div>
                                         </td>
                                     </tr>
                         </tbody>
@@ -729,7 +729,7 @@
                                 </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="219" class="link-to-prism">src/weather.container.ts:219</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/weather.interfaces.ts:10</a></div>
                                         </td>
                                     </tr>
                         </tbody>
@@ -755,7 +755,7 @@
                                 </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="217" class="link-to-prism">src/weather.container.ts:217</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/weather.interfaces.ts:8</a></div>
                                         </td>
                                     </tr>
                         </tbody>
@@ -781,7 +781,7 @@
                                 </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="215" class="link-to-prism">src/weather.container.ts:215</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">src/weather.interfaces.ts:6</a></div>
                                         </td>
                                     </tr>
                         </tbody>
@@ -791,216 +791,7 @@
 
 
     <div class="tab-pane fade tab-source-code" id="source">
-        <pre class="line-numbers"><code class="language-typescript">import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  ElementRef,
-  HostBinding,
-  HostListener,
-  Input,
-  OnChanges,
-  OnDestroy,
-  Renderer2,
-  SimpleChanges
-} from &#x27;@angular/core&#x27;;
-import { TemperatureScale } from &#x27;./components/weather-current-temperature/current-temperature.component&#x27;;
-import {
-  CurrentWeather,
-  Forecast,
-  WeatherApiService,
-  WeatherQueryParams
-} from &#x27;./services/api/weather.api.service&#x27;;
-import { Subscription } from &#x27;rxjs/Subscription&#x27;;
-import { Observable } from &#x27;rxjs/Observable&#x27;;
-import { ForecastMode } from &#x27;./components/weather-forecast/weather-forecast.component&#x27;;
-
-@Component({
-  selector: &#x27;weather-container&#x27;,
-  changeDetection: ChangeDetectionStrategy.Default,
-  styles: [
-    &#x60;
-             :host {
-               display: flex;
-               position: relative;
-               padding: 1.5em;
-               box-sizing: border-box;
-             }
-             .info {
-               display: flex;
-               flex-direction: column;
-               align-items: center;
-               justify-content: center;
-               width: 100%;
-             }
-             weather-actions {
-               display: block;
-               position: absolute;
-               top: 10px;
-               right: 10px;
-             }
-             weather-current-temperature.big {
-               font-size: 3em;
-             }
-             weather-icon.big {
-               font-size: 6em;
-               padding: 0.15em;
-             }
-             .empty {
-               flex-direction: row;
-             }
-             .empty i {
-               font-size: 3em;
-               margin-right: 0.3em;
-             }
-
-           &#x60;
-  ],
-  template: &#x60;
-    &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.10/css/weather-icons.min.css&quot;&gt;
-    &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.10/css/weather-icons-wind.min.css&quot;&gt;
-    &lt;div *ngIf&#x3D;&quot;currentWeather&quot; class&#x3D;&quot;info&quot;&gt;
-      &lt;weather-icon
-        class&#x3D;&quot;big&quot;
-        [iconImageUrl]&#x3D;&quot;currentWeather?.iconUrl&quot;
-        [iconClass]&#x3D;&quot;currentWeather?.iconClass&quot;&gt;&lt;/weather-icon&gt;
-      &lt;weather-current-description
-        [descripion]&#x3D;&quot;currentWeather?.description&quot;&gt;&lt;/weather-current-description&gt;
-      &lt;weather-current-wind
-        *ngIf&#x3D;&quot;settings.showWind&quot;
-        [scale]&#x3D;&quot;settings.scale&quot;
-        [deg]&#x3D;&quot;currentWeather?.wind.deg&quot;
-        [speed]&#x3D;&quot;currentWeather?.wind.speed&quot;&gt;&lt;/weather-current-wind&gt;
-      &lt;weather-location [place]&#x3D;&quot;currentWeather?.location&quot;&gt;&lt;/weather-location&gt;
-      &lt;weather-current-temperature
-        class&#x3D;&quot;big&quot;
-        [temp]&#x3D;&quot;currentWeather?.temp&quot;
-        [deg]&#x3D;&quot;settings.scale&quot;&gt;&lt;/weather-current-temperature&gt;
-      &lt;weather-current-details
-        *ngIf&#x3D;&quot;settings.showDetails&quot;
-        [maxTemp]&#x3D;&quot;currentWeather?.maxTemp&quot;
-        [minTemp]&#x3D;&quot;currentWeather?.minTemp&quot;
-        [pressure]&#x3D;&quot;currentWeather?.pressure&quot;
-        [humidity]&#x3D;&quot;currentWeather?.humidity&quot;&gt;&lt;/weather-current-details&gt;
-      &lt;weather-forecast
-        *ngIf&#x3D;&quot;settings.showForecast&quot;
-        [forecast]&#x3D;&quot;forecast&quot;
-        [settings]&#x3D;&quot;settings&quot;
-        [mode]&#x3D;&quot;settings.forecastMode&quot;&gt;&lt;/weather-forecast&gt;
-
-    &lt;/div&gt;
-    &lt;div *ngIf&#x3D;&quot;!currentWeather&quot; class&#x3D;&quot;info empty&quot;&gt;
-      &lt;i class&#x3D;&quot;wi wi-sunrise&quot;&gt;&lt;/i&gt;
-      No weather data...
-    &lt;/div&gt;
-    &lt;weather-actions *ngIf&#x3D;&quot;isMouseOn&quot; (update)&#x3D;&quot;getWeather()&quot;&gt;&lt;/weather-actions&gt;
-
-  &#x60;
-})
-export // tslint:disable-next-line:component-class-suffix
-class WeatherContainer implements OnDestroy {
-  @HostBinding(&#x27;style.background&#x27;) background: string;
-  @HostBinding(&#x27;style.color&#x27;) color: string;
-  @HostBinding(&#x27;style.width&#x27;) width &#x3D; &#x27;auto&#x27;;
-  @HostBinding(&#x27;style.height&#x27;) height &#x3D; &#x27;auto&#x27;;
-
-  @Input() forecast: Forecast | null;
-  @Input() currentWeather: CurrentWeather | null;
-  @Input()
-  set settings(value: WeatherSettings) {
-    if (!value) {
-      return;
-    }
-    this._settings &#x3D; value;
-    this.background &#x3D; this._settings.backgroundColor || &#x27;white&#x27;;
-    this.color &#x3D; this._settings.color || &#x27;black&#x27;;
-    this.width &#x3D; this._settings.width;
-    this.height &#x3D; this._settings.height;
-    if (this.weatherApi.apiConfig.name &amp;&amp; this.weatherApi.apiConfig.key) {
-      this.getWeather();
-    }
-  }
-
-  get settings(): WeatherSettings {
-    return this._settings;
-  }
-
-  subscriptionCurrentWeather: Subscription;
-  subscriptionForecast: Subscription;
-  currentWeather$: Observable&lt;CurrentWeather&gt;;
-  forecast$: Observable&lt;Forecast&gt;;
-  isMouseOn: boolean;
-
-  private _settings: WeatherSettings;
-
-  constructor(
-    private weatherApi: WeatherApiService,
-    private changeDetectorRef: ChangeDetectorRef,
-    private renderer: Renderer2,
-    private element: ElementRef
-  ) {}
-
-  ngOnDestroy() {
-    if (this.subscriptionCurrentWeather) {
-      this.subscriptionCurrentWeather.unsubscribe();
-    }
-    if (this.subscriptionForecast) {
-      this.subscriptionForecast.unsubscribe();
-    }
-  }
-
-  @HostListener(&#x27;mouseenter&#x27;)
-  private onMouseEnter() {
-    this.renderer.addClass(this.element.nativeElement, &#x27;active&#x27;);
-    this.isMouseOn &#x3D; true;
-  }
-  @HostListener(&#x27;mouseleave&#x27;)
-  private onMouseLeave() {
-    this.renderer.removeClass(this.element.nativeElement, &#x27;active&#x27;);
-    this.isMouseOn &#x3D; false;
-  }
-
-  getWeather(): void {
-    if (this.subscriptionCurrentWeather) {
-      this.subscriptionCurrentWeather.unsubscribe();
-    }
-    if (this.subscriptionForecast) {
-      this.subscriptionForecast.unsubscribe();
-    }
-    this.currentWeather$ &#x3D; this.currentWeatherCall();
-    this.forecast$ &#x3D; this.forecastCall();
-    this.subscriptionCurrentWeather &#x3D; this.currentWeather$.subscribe(data &#x3D;&gt; {
-      this.currentWeather &#x3D; data;
-      this.changeDetectorRef.markForCheck();
-    });
-    this.subscriptionForecast &#x3D; this.forecast$.subscribe(data &#x3D;&gt; {
-      this.forecast &#x3D; data;
-      this.changeDetectorRef.markForCheck();
-    });
-  }
-
-  currentWeatherCall(): Observable&lt;CurrentWeather&gt; {
-    const params: WeatherQueryParams &#x3D; Object.assign(
-      {},
-      this.settings.location,
-      { units: this.settings.scale },
-      { lang: this.settings.language }
-    );
-    return this.weatherApi.currentWeather(params);
-  }
-
-  forecastCall(): Observable&lt;Forecast&gt; {
-    const params: WeatherQueryParams &#x3D; Object.assign(
-      {},
-      this.settings.location,
-      { units: this.settings.scale },
-      { lang: this.settings.language }
-    );
-    return this.weatherApi.forecast(params);
-  }
-}
-
-export class WeatherSettings {
+        <pre class="line-numbers"><code class="language-typescript">export class WeatherSettings {
   location: WeatherQueryParams &#x3D; { cityName: &#x27;Szczecin&#x27; };
   scale: TemperatureScale &#x3D; TemperatureScale.CELCIUS;
   backgroundColor? &#x3D; &#x27;white&#x27;;
@@ -1012,6 +803,29 @@ export class WeatherSettings {
   showForecast?: boolean;
   language?: string;
   forecastMode?: ForecastMode;
+}
+
+export enum ForecastMode {
+  GRID &#x3D; &lt;any&gt;&#x27;GRID&#x27;,
+  DETAILED &#x3D; &lt;any&gt;&#x27;DETAILED&#x27;
+}
+
+export enum TemperatureScale {
+  CELCIUS &#x3D; &lt;any&gt;&#x27;celcius&#x27;,
+  KELVIN &#x3D; &lt;any&gt;&#x27;kelvin&#x27;,
+  FAHRENHEIT &#x3D; &lt;any&gt;&#x27;fahrenheit&#x27;
+}
+
+export interface WeatherQueryParams {
+  cityId?: number;
+  cityName?: string;
+  latLng?: {
+    lat: number;
+    lng: number;
+  };
+  zipCode?: number;
+  units?: TemperatureScale;
+  lang?: string;
 }
 </code></pre>
     </div>

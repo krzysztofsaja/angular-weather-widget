@@ -1,6 +1,6 @@
 {
   "name": "angular-weather-widget",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Weather Widget based on Open Weather Map Api",
   "main": "./bundles/angular-weather-widget.umd.js",
   "module": "./index.js",

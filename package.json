@@ -1,6 +1,6 @@
 {
   "name": "angular-weather-widget",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Weather Widget based on Open Weather Map Api",
   "main": "./bundles/angular-weather-widget.umd.js",
   "module": "./index.js",
@@ -125,6 +125,5 @@
       "path": "node_modules/cz-conventional-changelog"
     }
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }

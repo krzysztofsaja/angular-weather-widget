@@ -512,7 +512,8 @@ import { AngularWeatherWidgetModule, WeatherApiName } from &#39;angular-weather-
         })
   ]
 })
-export class MyModule {}</code></pre><p>Finally use in one of your apps components:</p>
+export class MyModule {}</code></pre><h2 id="configuration">Configuration</h2>
+<p>Use in one of your apps components:</p>
 <pre class="line-numbers"><code class="language-typescript">import { Component } from &#39;&#64;angular/core&#39;;
 import { WeatherSettings, TemperatureScale, ForecastMode } from &#39;angular-weather-widget&#39;;
 
@@ -536,6 +537,22 @@ export class MyComponent {
       showForecast: true,
       language: &#39;en&#39;
     };
+}</code></pre><p>If you set proper OPEN_WEATHER_MAP_API_KEY key, data will be retrived from Open Weather Map Api. However, you can also pass relevant information from parent component, eg.</p>
+<pre class="line-numbers"><code class="language-typescript">import { Component } from &#39;&#64;angular/core&#39;;
+import { WeatherSettings, TemperatureScale, ForecastMode } from &#39;angular-weather-widget&#39;;
+
+
+&#64;Component({
+  template: &#39;&lt;weather-widget [currentWeather]=currentWeather [forecast]=forecast  [settings]=&quot;settings&quot;&gt;&lt;/weather-widget&gt;&#39;
+})
+export class MyComponent {
+  currentWeather: CurrentWeather = CURRENT_WATHER_MOCK;
+  forecast: Forecast[] = FORECAST_MOCK;
+  settings: WeatherSettings = {
+  location: {
+    cityName: &#39;Szczecin&#39;
+  }
+};  
 }</code></pre><p>You may also find it useful to view the <a href="https://github.com/krzysztofsaja/angular-weather/blob/master/demo/demo.component.ts">demo source</a>.
 You may also find it useful to view the <a href="https://github.com/krzysztofsaja/angular-weather-widget/blob/master/demo/demo.component.ts">demo source</a>.</p>
 <h3 id="usage-without-a-module-bundler">Usage without a module bundler</h3>

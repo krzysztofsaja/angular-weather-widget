@@ -28,6 +28,7 @@ import { WeatherQueryParams, WeatherSettings } from './weather.interfaces';
                position: relative;
                padding: 1.5em;
                box-sizing: border-box;
+               overflow-y: auto;
              }
              .info {
                display: flex;

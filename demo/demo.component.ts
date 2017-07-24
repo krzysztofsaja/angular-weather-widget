@@ -1,3 +1,11 @@
+import {
+  CURRENT_WATHER_MOCK,
+  FORECAST_MOCK
+} from '../src/mocks/open-weather-map.mock';
+import {
+  CurrentWeather,
+  Forecast
+} from '../src/services/api/weather.api.service';
 import { Component } from '@angular/core';
 import { TemperatureScale } from '../src/components/weather-current-temperature/current-temperature.component';
 import { ForecastMode, WeatherSettings } from '../src/weather.interfaces';
@@ -55,7 +63,10 @@ import { ForecastMode, WeatherSettings } from '../src/weather.interfaces';
       </div>
       <button (click)="onUpdate()">Update</button>
     </div>
-    <weather-widget [settings]="settings"></weather-widget>`
+    <weather-widget
+    [currentWeather]=currentWeather
+    [forecast]=forecast
+    [settings]="settings"></weather-widget>`
 })
 export class DemoComponent {
   settings: WeatherSettings = {
@@ -63,8 +74,8 @@ export class DemoComponent {
       cityName: 'Szczecin'
     },
     scale: TemperatureScale.CELCIUS,
-    backgroundColor: '#347c57',
-    color: '#ffffff',
+    backgroundColor: '#ffffff',
+    color: '#222222',
     width: '300px',
     height: 'auto',
     showWind: false,
@@ -73,6 +84,9 @@ export class DemoComponent {
     forecastMode: ForecastMode.DETAILED,
     language: 'en'
   };
+
+  currentWeather: CurrentWeather = CURRENT_WATHER_MOCK;
+  forecast: Forecast[] = FORECAST_MOCK;
 
   onUpdate() {
     this.settings = Object.assign({}, this.settings);

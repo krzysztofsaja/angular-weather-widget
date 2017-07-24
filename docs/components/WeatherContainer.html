@@ -551,7 +551,6 @@
                position: relative;
                padding: 1em;
                box-sizing: border-box;
-               overflow-y: auto;
              }
              .info {
                display: flex;
@@ -568,6 +567,8 @@
              }
              .wide .forecast {
                flex-grow: 1;
+               overflow-y: auto;
+               height: 100%;
              }
              .current {
                display: flex;
@@ -579,6 +580,7 @@
              .forecast {
                min-width: 200px;
                width: 100%;
+               overflow-y: auto;
              }
              .current, .forecast {
                padding: 0.5em;
@@ -636,9 +638,8 @@
       [pressure]&#x3D;&quot;currentWeather?.pressure&quot;
       [humidity]&#x3D;&quot;currentWeather?.humidity&quot;&gt;&lt;/weather-current-details&gt;
   &lt;/div&gt;
-  &lt;div class&#x3D;&quot;forecast&quot;&gt;
+  &lt;div class&#x3D;&quot;forecast&quot; *ngIf&#x3D;&quot;settings.showForecast&quot;&gt;
     &lt;weather-forecast
-      *ngIf&#x3D;&quot;settings.showForecast&quot;
       [forecast]&#x3D;&quot;forecast&quot;
       [settings]&#x3D;&quot;settings&quot;
       [mode]&#x3D;&quot;settings.forecastMode&quot;&gt;&lt;/weather-forecast&gt;
@@ -672,7 +673,7 @@
                     </tr>
                             <tr>
                                 <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="142" class="link-to-prism">src/weather.container.ts:142</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="143" class="link-to-prism">src/weather.container.ts:143</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -688,7 +689,7 @@
                     </tr>
                             <tr>
                                 <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="141" class="link-to-prism">src/weather.container.ts:141</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="142" class="link-to-prism">src/weather.container.ts:142</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -704,7 +705,7 @@
                     </tr>
                             <tr>
                                 <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="144" class="link-to-prism">src/weather.container.ts:144</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="145" class="link-to-prism">src/weather.container.ts:145</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -723,7 +724,7 @@
                     </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="172" class="link-to-prism">src/weather.container.ts:172</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="173" class="link-to-prism">src/weather.container.ts:173</a></div>
                                 </td>
                             </tr>
     
@@ -763,7 +764,7 @@
                         </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="136" class="link-to-prism">src/weather.container.ts:136</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="137" class="link-to-prism">src/weather.container.ts:137</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -794,7 +795,7 @@
                         </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="137" class="link-to-prism">src/weather.container.ts:137</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="138" class="link-to-prism">src/weather.container.ts:138</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -820,7 +821,7 @@
                         </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="168" class="link-to-prism">src/weather.container.ts:168</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="169" class="link-to-prism">src/weather.container.ts:169</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -846,7 +847,7 @@
                         </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="169" class="link-to-prism">src/weather.container.ts:169</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="170" class="link-to-prism">src/weather.container.ts:170</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -876,7 +877,7 @@
                         </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="139" class="link-to-prism">src/weather.container.ts:139</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="140" class="link-to-prism">src/weather.container.ts:140</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -902,7 +903,7 @@
                         </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="170" class="link-to-prism">src/weather.container.ts:170</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="171" class="link-to-prism">src/weather.container.ts:171</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -927,7 +928,7 @@
                         </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="165" class="link-to-prism">src/weather.container.ts:165</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="166" class="link-to-prism">src/weather.container.ts:166</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -953,7 +954,7 @@
                         </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="161" class="link-to-prism">src/weather.container.ts:161</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="162" class="link-to-prism">src/weather.container.ts:162</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -979,7 +980,7 @@
                         </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="166" class="link-to-prism">src/weather.container.ts:166</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="167" class="link-to-prism">src/weather.container.ts:167</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -1005,7 +1006,7 @@
                         </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="167" class="link-to-prism">src/weather.container.ts:167</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="168" class="link-to-prism">src/weather.container.ts:168</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -1035,7 +1036,7 @@
                         </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="138" class="link-to-prism">src/weather.container.ts:138</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="139" class="link-to-prism">src/weather.container.ts:139</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -1079,7 +1080,6 @@ import {
                position: relative;
                padding: 1em;
                box-sizing: border-box;
-               overflow-y: auto;
              }
              .info {
                display: flex;
@@ -1096,6 +1096,8 @@ import {
              }
              .wide .forecast {
                flex-grow: 1;
+               overflow-y: auto;
+               height: 100%;
              }
              .current {
                display: flex;
@@ -1107,6 +1109,7 @@ import {
              .forecast {
                min-width: 200px;
                width: 100%;
+               overflow-y: auto;
              }
              .current, .forecast {
                padding: 0.5em;
@@ -1162,9 +1165,8 @@ import {
           [pressure]&#x3D;&quot;currentWeather?.pressure&quot;
           [humidity]&#x3D;&quot;currentWeather?.humidity&quot;&gt;&lt;/weather-current-details&gt;
       &lt;/div&gt;
-      &lt;div class&#x3D;&quot;forecast&quot;&gt;
+      &lt;div class&#x3D;&quot;forecast&quot; *ngIf&#x3D;&quot;settings.showForecast&quot;&gt;
         &lt;weather-forecast
-          *ngIf&#x3D;&quot;settings.showForecast&quot;
           [forecast]&#x3D;&quot;forecast&quot;
           [settings]&#x3D;&quot;settings&quot;
           [mode]&#x3D;&quot;settings.forecastMode&quot;&gt;&lt;/weather-forecast&gt;
@@ -1311,7 +1313,7 @@ class WeatherContainer implements OnDestroy {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.10/css/weather-icons.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.10/css/weather-icons-wind.min.css"><div *ngIf="currentWeather" class="info" [class.wide]="isWideLayout">  <div class="current">    <weather-icon      class="big"      [iconImageUrl]="currentWeather?.iconUrl"      [iconClass]="currentWeather?.iconClass"></weather-icon>    <weather-current-description      [descripion]="currentWeather?.description"></weather-current-description>    <weather-current-wind      *ngIf="settings.showWind"      [scale]="settings.scale"      [deg]="currentWeather?.wind.deg"      [speed]="currentWeather?.wind.speed"></weather-current-wind>    <weather-location [place]="currentWeather?.location"></weather-location>    <weather-current-temperature      class="big"      [temp]="currentWeather?.temp"      [deg]="settings.scale"></weather-current-temperature>    <weather-current-details      *ngIf="settings.showDetails"      [maxTemp]="currentWeather?.maxTemp"      [minTemp]="currentWeather?.minTemp"      [pressure]="currentWeather?.pressure"      [humidity]="currentWeather?.humidity"></weather-current-details>  </div>  <div class="forecast">    <weather-forecast      *ngIf="settings.showForecast"      [forecast]="forecast"      [settings]="settings"      [mode]="settings.forecastMode"></weather-forecast>  </div></div><div *ngIf="!currentWeather" class="info empty">  <i class="wi wi-sunrise"></i>  No weather data...</div><weather-actions *ngIf="isMouseOn" (update)="getWeather()"></weather-actions></div>'
+        var COMPONENT_TEMPLATE = '<div><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.10/css/weather-icons.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.10/css/weather-icons-wind.min.css"><div *ngIf="currentWeather" class="info" [class.wide]="isWideLayout">  <div class="current">    <weather-icon      class="big"      [iconImageUrl]="currentWeather?.iconUrl"      [iconClass]="currentWeather?.iconClass"></weather-icon>    <weather-current-description      [descripion]="currentWeather?.description"></weather-current-description>    <weather-current-wind      *ngIf="settings.showWind"      [scale]="settings.scale"      [deg]="currentWeather?.wind.deg"      [speed]="currentWeather?.wind.speed"></weather-current-wind>    <weather-location [place]="currentWeather?.location"></weather-location>    <weather-current-temperature      class="big"      [temp]="currentWeather?.temp"      [deg]="settings.scale"></weather-current-temperature>    <weather-current-details      *ngIf="settings.showDetails"      [maxTemp]="currentWeather?.maxTemp"      [minTemp]="currentWeather?.minTemp"      [pressure]="currentWeather?.pressure"      [humidity]="currentWeather?.humidity"></weather-current-details>  </div>  <div class="forecast" *ngIf="settings.showForecast">    <weather-forecast      [forecast]="forecast"      [settings]="settings"      [mode]="settings.forecastMode"></weather-forecast>  </div></div><div *ngIf="!currentWeather" class="info empty">  <i class="wi wi-sunrise"></i>  No weather data...</div><weather-actions *ngIf="isMouseOn" (update)="getWeather()"></weather-actions></div>'
     var COMPONENTS = [{'name': 'ChartComponent', 'selector': 'weather-chart'},{'name': 'WeatherActionsComponent', 'selector': 'weather-actions'},{'name': 'WeatherContainer', 'selector': 'weather-widget'},{'name': 'WeatherCurrentDescriptionComponent', 'selector': 'weather-current-description'},{'name': 'WeatherCurrentDetailsComponent', 'selector': 'weather-current-details'},{'name': 'WeatherCurrentTempComponent', 'selector': 'weather-current-temperature'},{'name': 'WeatherCurrentWindComponent', 'selector': 'weather-current-wind'},{'name': 'WeatherForecastChartWideComponent', 'selector': 'weather-forecast-chart-wide'},{'name': 'WeatherForecastComponent', 'selector': 'weather-forecast'},{'name': 'WeatherForecastDetailDayComponent', 'selector': 'weather-forecast-detail-day'},{'name': 'WeatherForecastDetailedComponent', 'selector': 'weather-forecast-detailed'},{'name': 'WeatherForecastGridDayComponent', 'selector': 'weather-forecast-grid-day'},{'name': 'WeatherForecastSimpleGridComponent', 'selector': 'weather-forecast-simple-grid'},{'name': 'WeatherIconComponent', 'selector': 'weather-icon'},{'name': 'WeatherLocationComponent', 'selector': 'weather-location'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'WeatherContainer'};

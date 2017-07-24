@@ -548,20 +548,24 @@
                 <td class="col-md-9"><code>
              :host {
                display: flex;
-               justify-content: space-between;
                align-items: center;
                padding: 0.1em 0;
                font-size: 1em;
                box-sizing: border-box;
-             }
+               justify-content: flex-start;
+               width: 100%;
 
+             }
              :host &gt; * {
                padding: 0 0.4em;
              }
-
+             .left {
+               flex-grow: 0;
+             }
              weather-chart {
                height: 80px;
                width: 80%;
+               flex: 1 1;
              }
 
              weather-icon {
@@ -605,7 +609,7 @@
                     </tr>
                             <tr>
                                 <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">src/components/weather-forecast/forecast-detailed/forecast-detailed-day.component.ts:61</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">src/components/weather-forecast/forecast-detailed/forecast-detailed-day.component.ts:65</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -625,7 +629,7 @@
                     </tr>
                             <tr>
                                 <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">src/components/weather-forecast/forecast-detailed/forecast-detailed-day.component.ts:58</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">src/components/weather-forecast/forecast-detailed/forecast-detailed-day.component.ts:62</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -644,7 +648,7 @@
                     </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">src/components/weather-forecast/forecast-detailed/forecast-detailed-day.component.ts:67</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="71" class="link-to-prism">src/components/weather-forecast/forecast-detailed/forecast-detailed-day.component.ts:71</a></div>
                                 </td>
                             </tr>
     
@@ -679,7 +683,7 @@
                         </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/components/weather-forecast/forecast-detailed/forecast-detailed-day.component.ts:56</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">src/components/weather-forecast/forecast-detailed/forecast-detailed-day.component.ts:60</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -705,7 +709,7 @@
                         </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">src/components/weather-forecast/forecast-detailed/forecast-detailed-day.component.ts:57</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">src/components/weather-forecast/forecast-detailed/forecast-detailed-day.component.ts:61</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -731,7 +735,7 @@
                         </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">src/components/weather-forecast/forecast-detailed/forecast-detailed-day.component.ts:64</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">src/components/weather-forecast/forecast-detailed/forecast-detailed-day.component.ts:68</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -760,20 +764,24 @@ import { WeatherSettings } from &#x27;../../../weather.interfaces&#x27;;
     &#x60;
              :host {
                display: flex;
-               justify-content: space-between;
                align-items: center;
                padding: 0.1em 0;
                font-size: 1em;
                box-sizing: border-box;
-             }
+               justify-content: flex-start;
+               width: 100%;
 
+             }
              :host &gt; * {
                padding: 0 0.4em;
              }
-
+             .left {
+               flex-grow: 0;
+             }
              weather-chart {
                height: 80px;
                width: 80%;
+               flex: 1 1;
              }
 
              weather-icon {

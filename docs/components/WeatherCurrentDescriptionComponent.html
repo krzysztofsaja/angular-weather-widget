@@ -539,7 +539,12 @@
 
             <tr>
                 <td class="col-md-3">styles</td>
-                <td class="col-md-9"><code>{  }</code></td>
+                <td class="col-md-9"><code>
+           :host {
+             display: block;
+             text-align: center;
+           }
+           </code></td>
             </tr>
 
             <tr>
@@ -571,7 +576,7 @@
                     </tr>
                             <tr>
                                 <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/components/weather-current-description/weather-current-description.component.ts:18</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/components/weather-current-description/weather-current-description.component.ts:25</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -596,7 +601,14 @@
 @Component({
   selector: &#x27;weather-current-description&#x27;,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  styles: [&#x60;&#x60;],
+  styles: [
+    &#x60;
+           :host {
+             display: block;
+             text-align: center;
+           }
+           &#x60;
+  ],
   template: &#x60;
     {{ descripion | uppercase}}
   &#x60;

@@ -8,7 +8,11 @@ import {
 } from '../src/services/api/weather.api.service';
 import { Component } from '@angular/core';
 import { TemperatureScale } from '../src/components/weather-current-temperature/current-temperature.component';
-import { ForecastMode, WeatherSettings } from '../src/weather.interfaces';
+import {
+  ForecastMode,
+  WeatherLayout,
+  WeatherSettings
+} from '../src/weather.interfaces';
 
 @Component({
   selector: 'weather-demo-app',
@@ -40,11 +44,8 @@ import { ForecastMode, WeatherSettings } from '../src/weather.interfaces';
   ],
   template: `
     <div class="menu">
+      <h4>Data settings</h4>
       <div class="row"> Place<input type="text" [(ngModel)]="settings.location.cityName"></div>
-      <div class="row">Color<input type="text" [(ngModel)]="settings.color"></div>
-      <div class="row">Background color<input type="text" [(ngModel)]="settings.backgroundColor"></div>
-      <div class="row">Width<input type="text" [(ngModel)]="settings.width"></div>
-      <div class="row">Height<input type="text" [(ngModel)]="settings.height"></div>
       <div class="row">Show Wind<input type="checkbox" [(ngModel)]="settings.showWind"></div>
       <div class="row"> Show Details<input type="checkbox" [(ngModel)]="settings.showDetails"></div>
       <div class="row"> Show Forecast<input type="checkbox" [(ngModel)]="settings.showForecast"></div>
@@ -61,6 +62,17 @@ import { ForecastMode, WeatherSettings } from '../src/weather.interfaces';
           <option [value]="'fahrenheit'">Fahrenheit</option>
         </select>
       </div>
+      <h4>Layout</h4>
+      <div class="row">Layout
+        <select [(ngModel)]="settings.layout">
+          <option [value]="'wide'">Wide</option>
+          <option [value]="'narrow'">Narrow</option>
+        </select>
+      </div>
+      <div class="row">Color<input type="text" [(ngModel)]="settings.color"></div>
+      <div class="row">Background color<input type="text" [(ngModel)]="settings.backgroundColor"></div>
+      <div class="row">Width<input type="text" [(ngModel)]="settings.width"></div>
+      <div class="row">Height<input type="text" [(ngModel)]="settings.height"></div>
       <button (click)="onUpdate()">Update</button>
     </div>
     <weather-widget
@@ -76,13 +88,14 @@ export class DemoComponent {
     scale: TemperatureScale.CELCIUS,
     backgroundColor: '#ffffff',
     color: '#222222',
-    width: '300px',
+    width: 'auto',
     height: 'auto',
     showWind: false,
     showDetails: false,
     showForecast: true,
     forecastMode: ForecastMode.DETAILED,
-    language: 'en'
+    language: 'en',
+    layout: WeatherLayout.WIDE
   };
 
   currentWeather: CurrentWeather = CURRENT_WATHER_MOCK;

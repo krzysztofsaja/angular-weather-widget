@@ -10,6 +10,7 @@ export class WeatherSettings {
   showForecast?: boolean;
   language?: string;
   forecastMode?: ForecastMode;
+  layout?: WeatherLayout = WeatherLayout.NARROW;
 }
 
 export enum ForecastMode {
@@ -33,4 +34,9 @@ export interface WeatherQueryParams {
   zipCode?: number;
   units?: TemperatureScale;
   lang?: string;
+}
+
+export enum WeatherLayout {
+  WIDE = <any>'wide',
+  NARROW = <any>'narrow'
 }

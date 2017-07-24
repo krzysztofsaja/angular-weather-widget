@@ -51,7 +51,7 @@ export class MyModule {}
 Use in one of your apps components:
 ```typescript
 import { Component } from '@angular/core';
-import { WeatherSettings, TemperatureScale, ForecastMode } from 'angular-weather-widget';
+import { WeatherSettings, TemperatureScale, ForecastMode, WeatherLayout } from 'angular-weather-widget';
 
 
 @Component({
@@ -71,6 +71,7 @@ export class MyComponent {
       forecastMode: ForecastMode.DETAILED,
       showDetails: false,
       showForecast: true,
+      layout: WeatherLayout.WIDE,
       language: 'en'
     };
 }

@@ -40,7 +40,7 @@ export default {
     extensions: ['.ts', '.js']
   },
   devServer: {
-    port: 3000,
+    port: 3001,
     inline: true,
     hot: true,
     historyApiFallback: true

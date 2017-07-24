@@ -6,6 +6,7 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
   styles: [
     `
   :host {
+    display: block;
   }
     .deg {
       letter-spacing: -0.13em;

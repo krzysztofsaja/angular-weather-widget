@@ -549,7 +549,7 @@
              :host {
                display: flex;
                position: relative;
-               padding: 1.5em;
+               padding: 1em;
                box-sizing: border-box;
                overflow-y: auto;
              }
@@ -559,6 +559,28 @@
                align-items: center;
                justify-content: center;
                width: 100%;
+             }
+             .info.wide {
+               flex-direction: row;
+             }
+             .wide .current {
+               flex-grow: 0;
+             }
+             .wide .forecast {
+               flex-grow: 1;
+             }
+             .current {
+               display: flex;
+               flex-direction: column;
+               align-items: center;
+               justify-content: center;
+               min-width: 130px;
+             }
+             .forecast {
+               min-width: 200px;
+             }
+             .current, .forecast {
+               padding: 0.5em;
              }
              weather-actions {
                display: block;
@@ -588,35 +610,38 @@
                 <td class="col-md-3">template</td>
                 <td class="col-md-9"><pre class="line-numbers"><code class="language-html">&lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.10/css/weather-icons.min.css&quot;&gt;
 &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.10/css/weather-icons-wind.min.css&quot;&gt;
-&lt;div *ngIf&#x3D;&quot;currentWeather&quot; class&#x3D;&quot;info&quot;&gt;
-  &lt;weather-icon
-    class&#x3D;&quot;big&quot;
-    [iconImageUrl]&#x3D;&quot;currentWeather?.iconUrl&quot;
-    [iconClass]&#x3D;&quot;currentWeather?.iconClass&quot;&gt;&lt;/weather-icon&gt;
-  &lt;weather-current-description
-    [descripion]&#x3D;&quot;currentWeather?.description&quot;&gt;&lt;/weather-current-description&gt;
-  &lt;weather-current-wind
-    *ngIf&#x3D;&quot;settings.showWind&quot;
-    [scale]&#x3D;&quot;settings.scale&quot;
-    [deg]&#x3D;&quot;currentWeather?.wind.deg&quot;
-    [speed]&#x3D;&quot;currentWeather?.wind.speed&quot;&gt;&lt;/weather-current-wind&gt;
-  &lt;weather-location [place]&#x3D;&quot;currentWeather?.location&quot;&gt;&lt;/weather-location&gt;
-  &lt;weather-current-temperature
-    class&#x3D;&quot;big&quot;
-    [temp]&#x3D;&quot;currentWeather?.temp&quot;
-    [deg]&#x3D;&quot;settings.scale&quot;&gt;&lt;/weather-current-temperature&gt;
-  &lt;weather-current-details
-    *ngIf&#x3D;&quot;settings.showDetails&quot;
-    [maxTemp]&#x3D;&quot;currentWeather?.maxTemp&quot;
-    [minTemp]&#x3D;&quot;currentWeather?.minTemp&quot;
-    [pressure]&#x3D;&quot;currentWeather?.pressure&quot;
-    [humidity]&#x3D;&quot;currentWeather?.humidity&quot;&gt;&lt;/weather-current-details&gt;
-  &lt;weather-forecast
-    *ngIf&#x3D;&quot;settings.showForecast&quot;
-    [forecast]&#x3D;&quot;forecast&quot;
-    [settings]&#x3D;&quot;settings&quot;
-    [mode]&#x3D;&quot;settings.forecastMode&quot;&gt;&lt;/weather-forecast&gt;
-
+&lt;div *ngIf&#x3D;&quot;currentWeather&quot; class&#x3D;&quot;info&quot; [class.wide]&#x3D;&quot;isWideLayout&quot;&gt;
+  &lt;div class&#x3D;&quot;current&quot;&gt;
+    &lt;weather-icon
+      class&#x3D;&quot;big&quot;
+      [iconImageUrl]&#x3D;&quot;currentWeather?.iconUrl&quot;
+      [iconClass]&#x3D;&quot;currentWeather?.iconClass&quot;&gt;&lt;/weather-icon&gt;
+    &lt;weather-current-description
+      [descripion]&#x3D;&quot;currentWeather?.description&quot;&gt;&lt;/weather-current-description&gt;
+    &lt;weather-current-wind
+      *ngIf&#x3D;&quot;settings.showWind&quot;
+      [scale]&#x3D;&quot;settings.scale&quot;
+      [deg]&#x3D;&quot;currentWeather?.wind.deg&quot;
+      [speed]&#x3D;&quot;currentWeather?.wind.speed&quot;&gt;&lt;/weather-current-wind&gt;
+    &lt;weather-location [place]&#x3D;&quot;currentWeather?.location&quot;&gt;&lt;/weather-location&gt;
+    &lt;weather-current-temperature
+      class&#x3D;&quot;big&quot;
+      [temp]&#x3D;&quot;currentWeather?.temp&quot;
+      [deg]&#x3D;&quot;settings.scale&quot;&gt;&lt;/weather-current-temperature&gt;
+    &lt;weather-current-details
+      *ngIf&#x3D;&quot;settings.showDetails&quot;
+      [maxTemp]&#x3D;&quot;currentWeather?.maxTemp&quot;
+      [minTemp]&#x3D;&quot;currentWeather?.minTemp&quot;
+      [pressure]&#x3D;&quot;currentWeather?.pressure&quot;
+      [humidity]&#x3D;&quot;currentWeather?.humidity&quot;&gt;&lt;/weather-current-details&gt;
+  &lt;/div&gt;
+  &lt;div class&#x3D;&quot;forecast&quot;&gt;
+    &lt;weather-forecast
+      *ngIf&#x3D;&quot;settings.showForecast&quot;
+      [forecast]&#x3D;&quot;forecast&quot;
+      [settings]&#x3D;&quot;settings&quot;
+      [mode]&#x3D;&quot;settings.forecastMode&quot;&gt;&lt;/weather-forecast&gt;
+  &lt;/div&gt;
 &lt;/div&gt;
 &lt;div *ngIf&#x3D;&quot;!currentWeather&quot; class&#x3D;&quot;info empty&quot;&gt;
   &lt;i class&#x3D;&quot;wi wi-sunrise&quot;&gt;&lt;/i&gt;
@@ -646,7 +671,7 @@
                     </tr>
                             <tr>
                                 <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="112" class="link-to-prism">src/weather.container.ts:112</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="141" class="link-to-prism">src/weather.container.ts:141</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -662,7 +687,7 @@
                     </tr>
                             <tr>
                                 <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="111" class="link-to-prism">src/weather.container.ts:111</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="140" class="link-to-prism">src/weather.container.ts:140</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -678,7 +703,7 @@
                     </tr>
                             <tr>
                                 <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="114" class="link-to-prism">src/weather.container.ts:114</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="143" class="link-to-prism">src/weather.container.ts:143</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -697,7 +722,7 @@
                     </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="138" class="link-to-prism">src/weather.container.ts:138</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="171" class="link-to-prism">src/weather.container.ts:171</a></div>
                                 </td>
                             </tr>
     
@@ -737,7 +762,7 @@
                         </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="106" class="link-to-prism">src/weather.container.ts:106</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="135" class="link-to-prism">src/weather.container.ts:135</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -768,7 +793,7 @@
                         </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="107" class="link-to-prism">src/weather.container.ts:107</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="136" class="link-to-prism">src/weather.container.ts:136</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -794,7 +819,7 @@
                         </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="134" class="link-to-prism">src/weather.container.ts:134</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="167" class="link-to-prism">src/weather.container.ts:167</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -820,7 +845,7 @@
                         </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="135" class="link-to-prism">src/weather.container.ts:135</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="168" class="link-to-prism">src/weather.container.ts:168</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -850,7 +875,7 @@
                         </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="109" class="link-to-prism">src/weather.container.ts:109</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="138" class="link-to-prism">src/weather.container.ts:138</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -876,7 +901,32 @@
                         </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="136" class="link-to-prism">src/weather.container.ts:136</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="169" class="link-to-prism">src/weather.container.ts:169</a></div>
+                                </td>
+                            </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> isWideLayout</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>isWideLayout:     <code></code>
+    </bcode>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Default value : </i><code>false</code>
+                            </td>
+                        </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="164" class="link-to-prism">src/weather.container.ts:164</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -902,7 +952,7 @@
                         </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="128" class="link-to-prism">src/weather.container.ts:128</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="160" class="link-to-prism">src/weather.container.ts:160</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -928,7 +978,7 @@
                         </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="132" class="link-to-prism">src/weather.container.ts:132</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="165" class="link-to-prism">src/weather.container.ts:165</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -954,7 +1004,7 @@
                         </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="133" class="link-to-prism">src/weather.container.ts:133</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="166" class="link-to-prism">src/weather.container.ts:166</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -984,7 +1034,7 @@
                         </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="108" class="link-to-prism">src/weather.container.ts:108</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="137" class="link-to-prism">src/weather.container.ts:137</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -1012,7 +1062,11 @@ import {
   Forecast,
   WeatherApiService
 } from &#x27;./services/api/weather.api.service&#x27;;
-import { WeatherQueryParams, WeatherSettings } from &#x27;./weather.interfaces&#x27;;
+import {
+  WeatherLayout,
+  WeatherQueryParams,
+  WeatherSettings
+} from &#x27;./weather.interfaces&#x27;;
 
 @Component({
   selector: &#x27;weather-widget&#x27;,
@@ -1022,7 +1076,7 @@ import { WeatherQueryParams, WeatherSettings } from &#x27;./weather.interfaces&#
              :host {
                display: flex;
                position: relative;
-               padding: 1.5em;
+               padding: 1em;
                box-sizing: border-box;
                overflow-y: auto;
              }
@@ -1032,6 +1086,28 @@ import { WeatherQueryParams, WeatherSettings } from &#x27;./weather.interfaces&#
                align-items: center;
                justify-content: center;
                width: 100%;
+             }
+             .info.wide {
+               flex-direction: row;
+             }
+             .wide .current {
+               flex-grow: 0;
+             }
+             .wide .forecast {
+               flex-grow: 1;
+             }
+             .current {
+               display: flex;
+               flex-direction: column;
+               align-items: center;
+               justify-content: center;
+               min-width: 130px;
+             }
+             .forecast {
+               min-width: 200px;
+             }
+             .current, .forecast {
+               padding: 0.5em;
              }
              weather-actions {
                display: block;
@@ -1059,35 +1135,38 @@ import { WeatherQueryParams, WeatherSettings } from &#x27;./weather.interfaces&#
   template: &#x60;
     &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.10/css/weather-icons.min.css&quot;&gt;
     &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.10/css/weather-icons-wind.min.css&quot;&gt;
-    &lt;div *ngIf&#x3D;&quot;currentWeather&quot; class&#x3D;&quot;info&quot;&gt;
-      &lt;weather-icon
-        class&#x3D;&quot;big&quot;
-        [iconImageUrl]&#x3D;&quot;currentWeather?.iconUrl&quot;
-        [iconClass]&#x3D;&quot;currentWeather?.iconClass&quot;&gt;&lt;/weather-icon&gt;
-      &lt;weather-current-description
-        [descripion]&#x3D;&quot;currentWeather?.description&quot;&gt;&lt;/weather-current-description&gt;
-      &lt;weather-current-wind
-        *ngIf&#x3D;&quot;settings.showWind&quot;
-        [scale]&#x3D;&quot;settings.scale&quot;
-        [deg]&#x3D;&quot;currentWeather?.wind.deg&quot;
-        [speed]&#x3D;&quot;currentWeather?.wind.speed&quot;&gt;&lt;/weather-current-wind&gt;
-      &lt;weather-location [place]&#x3D;&quot;currentWeather?.location&quot;&gt;&lt;/weather-location&gt;
-      &lt;weather-current-temperature
-        class&#x3D;&quot;big&quot;
-        [temp]&#x3D;&quot;currentWeather?.temp&quot;
-        [deg]&#x3D;&quot;settings.scale&quot;&gt;&lt;/weather-current-temperature&gt;
-      &lt;weather-current-details
-        *ngIf&#x3D;&quot;settings.showDetails&quot;
-        [maxTemp]&#x3D;&quot;currentWeather?.maxTemp&quot;
-        [minTemp]&#x3D;&quot;currentWeather?.minTemp&quot;
-        [pressure]&#x3D;&quot;currentWeather?.pressure&quot;
-        [humidity]&#x3D;&quot;currentWeather?.humidity&quot;&gt;&lt;/weather-current-details&gt;
-      &lt;weather-forecast
-        *ngIf&#x3D;&quot;settings.showForecast&quot;
-        [forecast]&#x3D;&quot;forecast&quot;
-        [settings]&#x3D;&quot;settings&quot;
-        [mode]&#x3D;&quot;settings.forecastMode&quot;&gt;&lt;/weather-forecast&gt;
-
+    &lt;div *ngIf&#x3D;&quot;currentWeather&quot; class&#x3D;&quot;info&quot; [class.wide]&#x3D;&quot;isWideLayout&quot;&gt;
+      &lt;div class&#x3D;&quot;current&quot;&gt;
+        &lt;weather-icon
+          class&#x3D;&quot;big&quot;
+          [iconImageUrl]&#x3D;&quot;currentWeather?.iconUrl&quot;
+          [iconClass]&#x3D;&quot;currentWeather?.iconClass&quot;&gt;&lt;/weather-icon&gt;
+        &lt;weather-current-description
+          [descripion]&#x3D;&quot;currentWeather?.description&quot;&gt;&lt;/weather-current-description&gt;
+        &lt;weather-current-wind
+          *ngIf&#x3D;&quot;settings.showWind&quot;
+          [scale]&#x3D;&quot;settings.scale&quot;
+          [deg]&#x3D;&quot;currentWeather?.wind.deg&quot;
+          [speed]&#x3D;&quot;currentWeather?.wind.speed&quot;&gt;&lt;/weather-current-wind&gt;
+        &lt;weather-location [place]&#x3D;&quot;currentWeather?.location&quot;&gt;&lt;/weather-location&gt;
+        &lt;weather-current-temperature
+          class&#x3D;&quot;big&quot;
+          [temp]&#x3D;&quot;currentWeather?.temp&quot;
+          [deg]&#x3D;&quot;settings.scale&quot;&gt;&lt;/weather-current-temperature&gt;
+        &lt;weather-current-details
+          *ngIf&#x3D;&quot;settings.showDetails&quot;
+          [maxTemp]&#x3D;&quot;currentWeather?.maxTemp&quot;
+          [minTemp]&#x3D;&quot;currentWeather?.minTemp&quot;
+          [pressure]&#x3D;&quot;currentWeather?.pressure&quot;
+          [humidity]&#x3D;&quot;currentWeather?.humidity&quot;&gt;&lt;/weather-current-details&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;forecast&quot;&gt;
+        &lt;weather-forecast
+          *ngIf&#x3D;&quot;settings.showForecast&quot;
+          [forecast]&#x3D;&quot;forecast&quot;
+          [settings]&#x3D;&quot;settings&quot;
+          [mode]&#x3D;&quot;settings.forecastMode&quot;&gt;&lt;/weather-forecast&gt;
+      &lt;/div&gt;
     &lt;/div&gt;
     &lt;div *ngIf&#x3D;&quot;!currentWeather&quot; class&#x3D;&quot;info empty&quot;&gt;
       &lt;i class&#x3D;&quot;wi wi-sunrise&quot;&gt;&lt;/i&gt;
@@ -1119,12 +1198,16 @@ class WeatherContainer implements OnDestroy {
     if (this.weatherApi.apiConfig.name &amp;&amp; this.weatherApi.apiConfig.key) {
       this.getWeather();
     }
+    if (this._settings.layout) {
+      this.isWideLayout &#x3D; this._settings.layout &#x3D;&#x3D;&#x3D; WeatherLayout.WIDE;
+    }
   }
 
   get settings(): WeatherSettings {
     return this._settings;
   }
 
+  isWideLayout &#x3D; false;
   subscriptionCurrentWeather: Subscription;
   subscriptionForecast: Subscription;
   currentWeather$: Observable&lt;CurrentWeather&gt;;
@@ -1226,7 +1309,7 @@ class WeatherContainer implements OnDestroy {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.10/css/weather-icons.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.10/css/weather-icons-wind.min.css"><div *ngIf="currentWeather" class="info">  <weather-icon    class="big"    [iconImageUrl]="currentWeather?.iconUrl"    [iconClass]="currentWeather?.iconClass"></weather-icon>  <weather-current-description    [descripion]="currentWeather?.description"></weather-current-description>  <weather-current-wind    *ngIf="settings.showWind"    [scale]="settings.scale"    [deg]="currentWeather?.wind.deg"    [speed]="currentWeather?.wind.speed"></weather-current-wind>  <weather-location [place]="currentWeather?.location"></weather-location>  <weather-current-temperature    class="big"    [temp]="currentWeather?.temp"    [deg]="settings.scale"></weather-current-temperature>  <weather-current-details    *ngIf="settings.showDetails"    [maxTemp]="currentWeather?.maxTemp"    [minTemp]="currentWeather?.minTemp"    [pressure]="currentWeather?.pressure"    [humidity]="currentWeather?.humidity"></weather-current-details>  <weather-forecast    *ngIf="settings.showForecast"    [forecast]="forecast"    [settings]="settings"    [mode]="settings.forecastMode"></weather-forecast></div><div *ngIf="!currentWeather" class="info empty">  <i class="wi wi-sunrise"></i>  No weather data...</div><weather-actions *ngIf="isMouseOn" (update)="getWeather()"></weather-actions></div>'
+        var COMPONENT_TEMPLATE = '<div><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.10/css/weather-icons.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.10/css/weather-icons-wind.min.css"><div *ngIf="currentWeather" class="info" [class.wide]="isWideLayout">  <div class="current">    <weather-icon      class="big"      [iconImageUrl]="currentWeather?.iconUrl"      [iconClass]="currentWeather?.iconClass"></weather-icon>    <weather-current-description      [descripion]="currentWeather?.description"></weather-current-description>    <weather-current-wind      *ngIf="settings.showWind"      [scale]="settings.scale"      [deg]="currentWeather?.wind.deg"      [speed]="currentWeather?.wind.speed"></weather-current-wind>    <weather-location [place]="currentWeather?.location"></weather-location>    <weather-current-temperature      class="big"      [temp]="currentWeather?.temp"      [deg]="settings.scale"></weather-current-temperature>    <weather-current-details      *ngIf="settings.showDetails"      [maxTemp]="currentWeather?.maxTemp"      [minTemp]="currentWeather?.minTemp"      [pressure]="currentWeather?.pressure"      [humidity]="currentWeather?.humidity"></weather-current-details>  </div>  <div class="forecast">    <weather-forecast      *ngIf="settings.showForecast"      [forecast]="forecast"      [settings]="settings"      [mode]="settings.forecastMode"></weather-forecast>  </div></div><div *ngIf="!currentWeather" class="info empty">  <i class="wi wi-sunrise"></i>  No weather data...</div><weather-actions *ngIf="isMouseOn" (update)="getWeather()"></weather-actions></div>'
     var COMPONENTS = [{'name': 'ChartComponent', 'selector': 'weather-chart'},{'name': 'WeatherActionsComponent', 'selector': 'weather-actions'},{'name': 'WeatherContainer', 'selector': 'weather-widget'},{'name': 'WeatherCurrentDescriptionComponent', 'selector': 'weather-current-description'},{'name': 'WeatherCurrentDetailsComponent', 'selector': 'weather-current-details'},{'name': 'WeatherCurrentTempComponent', 'selector': 'weather-current-temperature'},{'name': 'WeatherCurrentWindComponent', 'selector': 'weather-current-wind'},{'name': 'WeatherForecastChartWideComponent', 'selector': 'weather-forecast-chart-wide'},{'name': 'WeatherForecastComponent', 'selector': 'weather-forecast'},{'name': 'WeatherForecastDetailDayComponent', 'selector': 'weather-forecast-detail-day'},{'name': 'WeatherForecastDetailedComponent', 'selector': 'weather-forecast-detailed'},{'name': 'WeatherForecastGridDayComponent', 'selector': 'weather-forecast-grid-day'},{'name': 'WeatherForecastSimpleGridComponent', 'selector': 'weather-forecast-simple-grid'},{'name': 'WeatherIconComponent', 'selector': 'weather-icon'},{'name': 'WeatherLocationComponent', 'selector': 'weather-location'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'WeatherContainer'};

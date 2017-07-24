@@ -541,7 +541,7 @@
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/weather.interfaces.ts:27</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/weather.interfaces.ts:28</a></div>
                                         </td>
                                     </tr>
 
@@ -573,7 +573,7 @@
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/weather.interfaces.ts:28</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/weather.interfaces.ts:29</a></div>
                                         </td>
                                     </tr>
 
@@ -605,7 +605,7 @@
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/weather.interfaces.ts:35</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/weather.interfaces.ts:36</a></div>
                                         </td>
                                     </tr>
 
@@ -631,7 +631,7 @@
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/weather.interfaces.ts:29</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/weather.interfaces.ts:30</a></div>
                                         </td>
                                     </tr>
 
@@ -663,7 +663,7 @@
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/weather.interfaces.ts:34</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/weather.interfaces.ts:35</a></div>
                                         </td>
                                     </tr>
 
@@ -695,7 +695,7 @@
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/weather.interfaces.ts:33</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/weather.interfaces.ts:34</a></div>
                                         </td>
                                     </tr>
 
@@ -718,6 +718,7 @@
   showForecast?: boolean;
   language?: string;
   forecastMode?: ForecastMode;
+  layout?: WeatherLayout &#x3D; WeatherLayout.NARROW;
 }
 
 export enum ForecastMode {
@@ -741,6 +742,11 @@ export interface WeatherQueryParams {
   zipCode?: number;
   units?: TemperatureScale;
   lang?: string;
+}
+
+export enum WeatherLayout {
+  WIDE &#x3D; &lt;any&gt;&#x27;wide&#x27;,
+  NARROW &#x3D; &lt;any&gt;&#x27;narrow&#x27;
 }
 </code></pre>
     </div>

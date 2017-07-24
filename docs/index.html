@@ -515,7 +515,7 @@ import { AngularWeatherWidgetModule, WeatherApiName } from &#39;angular-weather-
 export class MyModule {}</code></pre><h2 id="configuration">Configuration</h2>
 <p>Use in one of your apps components:</p>
 <pre class="line-numbers"><code class="language-typescript">import { Component } from &#39;&#64;angular/core&#39;;
-import { WeatherSettings, TemperatureScale, ForecastMode } from &#39;angular-weather-widget&#39;;
+import { WeatherSettings, TemperatureScale, ForecastMode, WeatherLayout } from &#39;angular-weather-widget&#39;;
 
 
 &#64;Component({
@@ -535,6 +535,7 @@ export class MyComponent {
       forecastMode: ForecastMode.DETAILED,
       showDetails: false,
       showForecast: true,
+      layout: WeatherLayout.WIDE,
       language: &#39;en&#39;
     };
 }</code></pre><p>If you set proper OPEN_WEATHER_MAP_API_KEY key, data will be retrived from Open Weather Map Api. However, you can also pass relevant information from parent component, eg.</p>

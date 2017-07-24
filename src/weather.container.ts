@@ -117,9 +117,8 @@ import {
           [pressure]="currentWeather?.pressure"
           [humidity]="currentWeather?.humidity"></weather-current-details>
       </div>
-      <div class="forecast">
+      <div class="forecast" *ngIf="settings.showForecast">
         <weather-forecast
-          *ngIf="settings.showForecast"
           [forecast]="forecast"
           [settings]="settings"
           [mode]="settings.forecastMode"></weather-forecast>

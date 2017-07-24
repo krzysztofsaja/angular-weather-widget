@@ -16,7 +16,11 @@ import {
   Forecast,
   WeatherApiService
 } from './services/api/weather.api.service';
-import { WeatherQueryParams, WeatherSettings } from './weather.interfaces';
+import {
+  WeatherLayout,
+  WeatherQueryParams,
+  WeatherSettings
+} from './weather.interfaces';
 
 @Component({
   selector: 'weather-widget',
@@ -26,7 +30,7 @@ import { WeatherQueryParams, WeatherSettings } from './weather.interfaces';
              :host {
                display: flex;
                position: relative;
-               padding: 1.5em;
+               padding: 1em;
                box-sizing: border-box;
                overflow-y: auto;
              }
@@ -36,6 +40,28 @@ import { WeatherQueryParams, WeatherSettings } from './weather.interfaces';
                align-items: center;
                justify-content: center;
                width: 100%;
+             }
+             .info.wide {
+               flex-direction: row;
+             }
+             .wide .current {
+               flex-grow: 0;
+             }
+             .wide .forecast {
+               flex-grow: 1;
+             }
+             .current {
+               display: flex;
+               flex-direction: column;
+               align-items: center;
+               justify-content: center;
+               min-width: 130px;
+             }
+             .forecast {
+               min-width: 200px;
+             }
+             .current, .forecast {
+               padding: 0.5em;
              }
              weather-actions {
                display: block;
@@ -63,35 +89,38 @@ import { WeatherQueryParams, WeatherSettings } from './weather.interfaces';
   template: `
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.10/css/weather-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.10/css/weather-icons-wind.min.css">
-    <div *ngIf="currentWeather" class="info">
-      <weather-icon
-        class="big"
-        [iconImageUrl]="currentWeather?.iconUrl"
-        [iconClass]="currentWeather?.iconClass"></weather-icon>
-      <weather-current-description
-        [descripion]="currentWeather?.description"></weather-current-description>
-      <weather-current-wind
-        *ngIf="settings.showWind"
-        [scale]="settings.scale"
-        [deg]="currentWeather?.wind.deg"
-        [speed]="currentWeather?.wind.speed"></weather-current-wind>
-      <weather-location [place]="currentWeather?.location"></weather-location>
-      <weather-current-temperature
-        class="big"
-        [temp]="currentWeather?.temp"
-        [deg]="settings.scale"></weather-current-temperature>
-      <weather-current-details
-        *ngIf="settings.showDetails"
-        [maxTemp]="currentWeather?.maxTemp"
-        [minTemp]="currentWeather?.minTemp"
-        [pressure]="currentWeather?.pressure"
-        [humidity]="currentWeather?.humidity"></weather-current-details>
-      <weather-forecast
-        *ngIf="settings.showForecast"
-        [forecast]="forecast"
-        [settings]="settings"
-        [mode]="settings.forecastMode"></weather-forecast>
-
+    <div *ngIf="currentWeather" class="info" [class.wide]="isWideLayout">
+      <div class="current">
+        <weather-icon
+          class="big"
+          [iconImageUrl]="currentWeather?.iconUrl"
+          [iconClass]="currentWeather?.iconClass"></weather-icon>
+        <weather-current-description
+          [descripion]="currentWeather?.description"></weather-current-description>
+        <weather-current-wind
+          *ngIf="settings.showWind"
+          [scale]="settings.scale"
+          [deg]="currentWeather?.wind.deg"
+          [speed]="currentWeather?.wind.speed"></weather-current-wind>
+        <weather-location [place]="currentWeather?.location"></weather-location>
+        <weather-current-temperature
+          class="big"
+          [temp]="currentWeather?.temp"
+          [deg]="settings.scale"></weather-current-temperature>
+        <weather-current-details
+          *ngIf="settings.showDetails"
+          [maxTemp]="currentWeather?.maxTemp"
+          [minTemp]="currentWeather?.minTemp"
+          [pressure]="currentWeather?.pressure"
+          [humidity]="currentWeather?.humidity"></weather-current-details>
+      </div>
+      <div class="forecast">
+        <weather-forecast
+          *ngIf="settings.showForecast"
+          [forecast]="forecast"
+          [settings]="settings"
+          [mode]="settings.forecastMode"></weather-forecast>
+      </div>
     </div>
     <div *ngIf="!currentWeather" class="info empty">
       <i class="wi wi-sunrise"></i>
@@ -123,12 +152,16 @@ class WeatherContainer implements OnDestroy {
     if (this.weatherApi.apiConfig.name && this.weatherApi.apiConfig.key) {
       this.getWeather();
     }
+    if (this._settings.layout) {
+      this.isWideLayout = this._settings.layout === WeatherLayout.WIDE;
+    }
   }
 
   get settings(): WeatherSettings {
     return this._settings;
   }
 
+  isWideLayout = false;
   subscriptionCurrentWeather: Subscription;
   subscriptionForecast: Subscription;
   currentWeather$: Observable<CurrentWeather>;

@@ -46,8 +46,9 @@ import { AngularWeatherWidgetModule, WeatherApiName } from 'angular-weather-widg
 })
 export class MyModule {}
 ```
+## Configuration
 
-Finally use in one of your apps components:
+Use in one of your apps components:
 ```typescript
 import { Component } from '@angular/core';
 import { WeatherSettings, TemperatureScale, ForecastMode } from 'angular-weather-widget';
@@ -72,6 +73,27 @@ export class MyComponent {
       showForecast: true,
       language: 'en'
     };
+}
+```
+
+If you set proper OPEN_WEATHER_MAP_API_KEY key, data will be retrived from Open Weather Map Api. However, you can also pass relevant information from parent component, eg.
+
+```typescript
+import { Component } from '@angular/core';
+import { WeatherSettings, TemperatureScale, ForecastMode } from 'angular-weather-widget';
+
+
+@Component({
+  template: '<weather-widget [currentWeather]=currentWeather [forecast]=forecast  [settings]="settings"></weather-widget>'
+})
+export class MyComponent {
+  currentWeather: CurrentWeather = CURRENT_WATHER_MOCK;
+  forecast: Forecast[] = FORECAST_MOCK;
+  settings: WeatherSettings = {
+  location: {
+    cityName: 'Szczecin'
+  }
+};  
 }
 ```
 

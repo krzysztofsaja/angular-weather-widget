@@ -32,7 +32,6 @@ import {
                position: relative;
                padding: 1em;
                box-sizing: border-box;
-               overflow-y: auto;
              }
              .info {
                display: flex;
@@ -49,6 +48,8 @@ import {
              }
              .wide .forecast {
                flex-grow: 1;
+               overflow-y: auto;
+               height: 100%;
              }
              .current {
                display: flex;
@@ -60,6 +61,7 @@ import {
              .forecast {
                min-width: 200px;
                width: 100%;
+               overflow-y: auto;
              }
              .current, .forecast {
                padding: 0.5em;
@@ -115,9 +117,8 @@ import {
           [pressure]="currentWeather?.pressure"
           [humidity]="currentWeather?.humidity"></weather-current-details>
       </div>
-      <div class="forecast">
+      <div class="forecast" *ngIf="settings.showForecast">
         <weather-forecast
-          *ngIf="settings.showForecast"
           [forecast]="forecast"
           [settings]="settings"
           [mode]="settings.forecastMode"></weather-forecast>

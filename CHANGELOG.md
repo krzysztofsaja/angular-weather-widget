@@ -2,6 +2,31 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.2.4"></a>
+## [1.2.4](https://github.com/krzysztofsaja/angular-weather-widget/compare/v1.2.3...v1.2.4) (2017-07-24)
+
+
+### Bug Fixes
+
+* **layout:** centering current weather without forecast ([9dc33ac](https://github.com/krzysztofsaja/angular-weather-widget/commit/9dc33ac))
+
+
+
+<a name="1.2.3"></a>
+## [1.2.3](https://github.com/krzysztofsaja/angular-weather-widget/compare/v1.2.2...v1.2.3) (2017-07-24)
+
+
+### Bug Fixes
+
+* **layout:** added overflow to forecast ([6c689db](https://github.com/krzysztofsaja/angular-weather-widget/commit/6c689db))
+
+
+
+<a name="1.2.2"></a>
+## [1.2.2](https://github.com/krzysztofsaja/angular-weather-widget/compare/v1.2.1...v1.2.2) (2017-07-24)
+
+
+
 <a name="1.2.1"></a>
 ## [1.2.1](https://github.com/krzysztofsaja/angular-weather-widget/compare/v1.2.0...v1.2.1) (2017-07-24)
 

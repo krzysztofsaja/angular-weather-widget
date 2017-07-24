@@ -10,6 +10,12 @@ import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
       text-align: center;
       margin-top: 1em;
     }
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
     .row span {
       margin: 0 0.3em;
     }
@@ -21,8 +27,11 @@ import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
   template: `
     <div class="row">
       <i class="wi wi-thermometer"></i>
-      <span>Min: {{minTemp}}&deg;</span>
-      <span>Max: {{maxTemp}}&deg;</span>
+      <span>
+          <span>Min: {{minTemp}}&deg;</span>
+          <span>Max: {{maxTemp}}&deg;</span>
+      </span>
+
     </div>
     <div class="row">
       <span><i class="wi wi-barometer"></i>Pressure: {{pressure}}</span>

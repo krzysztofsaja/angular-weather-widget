@@ -17,20 +17,24 @@ import { WeatherSettings } from '../../../weather.interfaces';
     `
              :host {
                display: flex;
-               justify-content: space-between;
                align-items: center;
                padding: 0.1em 0;
                font-size: 1em;
                box-sizing: border-box;
-             }
+               justify-content: flex-start;
+               width: 100%;
 
+             }
              :host > * {
                padding: 0 0.4em;
              }
-
+             .left {
+               flex-grow: 0;
+             }
              weather-chart {
                height: 80px;
                width: 80%;
+               flex: 1 1;
              }
 
              weather-icon {

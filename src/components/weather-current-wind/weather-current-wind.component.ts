@@ -18,6 +18,7 @@ import { WeatherSettings } from '../../weather.interfaces';
       justify-content: space-around;
       align-items: center;
       font-size: 0.8em;
+      min-height: 1.3em;
     }
     i {
       margin-left: 0.3em;

@@ -9,7 +9,14 @@ import {
 @Component({
   selector: 'weather-current-description',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  styles: [``],
+  styles: [
+    `
+           :host {
+             display: block;
+             text-align: center;
+           }
+           `
+  ],
   template: `
     {{ descripion | uppercase}}
   `

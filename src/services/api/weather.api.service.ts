@@ -6,7 +6,6 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/first';
-import { TemperatureScale } from '../../components/weather-current-temperature/current-temperature.component';
 import { WeatherQueryParams } from '../../weather.interfaces';
 
 @Injectable()

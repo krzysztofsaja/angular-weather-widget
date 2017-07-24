@@ -55,10 +55,11 @@ import {
                flex-direction: column;
                align-items: center;
                justify-content: center;
-               min-width: 130px;
+               min-width: 140px;
              }
              .forecast {
                min-width: 200px;
+               width: 100%;
              }
              .current, .forecast {
                padding: 0.5em;

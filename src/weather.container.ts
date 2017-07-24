@@ -161,7 +161,7 @@ class WeatherContainer implements OnDestroy {
     return this._settings;
   }
 
-  isWideLayout: boolean = false;
+  isWideLayout = false;
   subscriptionCurrentWeather: Subscription;
   subscriptionForecast: Subscription;
   currentWeather$: Observable<CurrentWeather>;

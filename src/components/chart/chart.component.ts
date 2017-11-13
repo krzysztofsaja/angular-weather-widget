@@ -23,6 +23,16 @@ export class ChartComponent implements OnInit, OnChanges {
   constructor(private elementRef: ElementRef) {}
 
   ngOnInit() {
+    this.options.scales = {
+        yAxes: [{
+            ticks: {
+                // Remove excess decimal places
+                callback: function(value, index, values) {
+                    return Number(value.toFixed(0));
+                }
+            }
+        }]
+    };
     this.chart = new Chart(
       this.elementRef.nativeElement.querySelector('canvas'),
       {
